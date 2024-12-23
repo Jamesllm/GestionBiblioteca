@@ -1,6 +1,9 @@
 package capa_presentacion;
 
+import capa_datos.clsConexion;
 import com.formdev.flatlaf.FlatLightLaf;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
  *
@@ -8,6 +11,7 @@ import com.formdev.flatlaf.FlatLightLaf;
  */
 public class Aplicacion {
 
+    private static Connection conexion;
     /**
      * @param args the command line arguments
      */
@@ -17,6 +21,14 @@ public class Aplicacion {
         
         IniciarSesion is = new IniciarSesion();
         is.setVisible(true);
+        
+        clsConexion conexionBD = clsConexion.getInstancia();
+
+        try {
+            conexion = conexionBD.getConexion();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     
 }

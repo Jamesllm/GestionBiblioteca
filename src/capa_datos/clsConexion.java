@@ -8,17 +8,16 @@ import java.sql.SQLException;
  *
  * @author Llapapasca Montes Ronal James
  */
-
 public class clsConexion {
 
     private static clsConexion instancia;
     private Connection conexion;
 
-    private final String host = "localhost:";
-    private final String port = "";
-    private final String database = "";
-    private final String user = "";
-    private final String password = "";
+    private String host = "localhost:";
+    private String port = "54178";
+    private String database = "contentFlow";
+    private String user = "userRecomendo";
+    private String password = "per123";
 
     private clsConexion() {
         // Constructor privado para evitar instancias externas
