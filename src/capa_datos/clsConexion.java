@@ -14,10 +14,10 @@ public class clsConexion {
     private Connection conexion;
 
     private String host = "localhost:";
-    private String port = "54178";
-    private String database = "contentFlow";
-    private String user = "userRecomendo";
-    private String password = "per123";
+    private String port = "1433";
+    private String database = "pvl";
+    private String user = "sa";
+    private String password = "12kayden$$$$043";
 
     private clsConexion() {
         // Constructor privado para evitar instancias externas
