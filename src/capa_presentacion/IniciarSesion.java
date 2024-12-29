@@ -4,7 +4,7 @@
  */
 package capa_presentacion;
 
-import com.formdev.flatlaf.intellijthemes.FlatMaterialDesignDarkIJTheme;
+//import com.formdev.flatlaf.intellijthemes.FlatMaterialDesignDarkIJTheme;
 
 /**
  *
@@ -140,20 +140,20 @@ public class IniciarSesion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_createActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-       FlatMaterialDesignDarkIJTheme.setup();
-       
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new IniciarSesion().setVisible(true);
-            }
-        });
-    }
+//    /**
+//     * @param args the command line arguments
+//     */
+//    public static void main(String args[]) {
+//       FlatMaterialDesignDarkIJTheme.setup();
+//       
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new IniciarSesion().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SignIn;
