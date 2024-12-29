@@ -1,7 +1,7 @@
 package capa_presentacion;
 
 import capa_datos.clsConexion;
-import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.intellijthemes.FlatOneDarkIJTheme;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -17,7 +17,7 @@ public class Aplicacion {
      */
     public static void main(String[] args) {
         // Aplicar cambio de interfaz grafica
-        FlatLightLaf.setup();
+         FlatOneDarkIJTheme.setup();
         
         IniciarSesion is = new IniciarSesion();
         is.setVisible(true);

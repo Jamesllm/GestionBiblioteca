@@ -4,7 +4,7 @@
  */
 package capa_presentacion;
 
-import com.formdev.flatlaf.intellijthemes.FlatOneDarkIJTheme;
+import com.formdev.flatlaf.intellijthemes.FlatMaterialDesignDarkIJTheme;
 
 /**
  *
@@ -17,12 +17,8 @@ public class IniciarSesion extends javax.swing.JFrame {
      */
     public IniciarSesion() {
         initComponents();
-        iniciarStyle();
     }
-    public void iniciarStyle()
-    {
-       textOne.putClientProperty( "FlatLaf.style", "font: bold $h1.regular.font" );
-    }
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,88 +29,123 @@ public class IniciarSesion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        fondo = new javax.swing.JPanel();
-        secondCapa = new javax.swing.JPanel();
-        textOne = new javax.swing.JLabel();
-        fondoBlanco = new javax.swing.JPanel();
+        fondoPrincipal = new javax.swing.JPanel();
+        text = new javax.swing.JLabel();
+        email = new javax.swing.JTextField();
+        username = new javax.swing.JTextField();
+        password = new javax.swing.JTextField();
+        SignIn = new javax.swing.JButton();
+        create = new javax.swing.JButton();
+        loginImg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        fondo.setBackground(new java.awt.Color(255, 255, 255));
+        fondoPrincipal.setBackground(new java.awt.Color(255, 255, 255));
+        fondoPrincipal.setMinimumSize(new java.awt.Dimension(800, 600));
+        fondoPrincipal.setPreferredSize(new java.awt.Dimension(800, 600));
+        fondoPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        secondCapa.setBackground(new java.awt.Color(38, 149, 222));
-        secondCapa.setPreferredSize(new java.awt.Dimension(300, 350));
+        text.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 34)); // NOI18N
+        text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        text.setText("Welcome!");
+        fondoPrincipal.add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 370, 50));
 
-        textOne.setBackground(new java.awt.Color(255, 255, 255));
-        textOne.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        textOne.setForeground(new java.awt.Color(255, 255, 255));
-        textOne.setText("Bienvenido!");
+        email.setBackground(new java.awt.Color(255, 255, 255));
+        email.setForeground(new java.awt.Color(0, 0, 0));
+        email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailActionPerformed(evt);
+            }
+        });
+        fondoPrincipal.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 300, 50));
 
-        javax.swing.GroupLayout secondCapaLayout = new javax.swing.GroupLayout(secondCapa);
-        secondCapa.setLayout(secondCapaLayout);
-        secondCapaLayout.setHorizontalGroup(
-            secondCapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(textOne, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
-        );
-        secondCapaLayout.setVerticalGroup(
-            secondCapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(secondCapaLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(textOne, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(275, Short.MAX_VALUE))
-        );
+        username.setBackground(new java.awt.Color(255, 255, 255));
+        username.setForeground(new java.awt.Color(0, 0, 0));
+        username.setToolTipText("");
+        username.setActionCommand("<Not Set>");
+        username.setName(""); // NOI18N
+        username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernameActionPerformed(evt);
+            }
+        });
+        fondoPrincipal.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 300, 50));
+        username.getAccessibleContext().setAccessibleName("");
+        username.getAccessibleContext().setAccessibleDescription("");
 
-        fondoBlanco.setBackground(new java.awt.Color(255, 255, 255));
+        password.setBackground(new java.awt.Color(255, 255, 255));
+        password.setForeground(new java.awt.Color(0, 0, 0));
+        password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordActionPerformed(evt);
+            }
+        });
+        fondoPrincipal.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 300, 50));
 
-        javax.swing.GroupLayout fondoBlancoLayout = new javax.swing.GroupLayout(fondoBlanco);
-        fondoBlanco.setLayout(fondoBlancoLayout);
-        fondoBlancoLayout.setHorizontalGroup(
-            fondoBlancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 358, Short.MAX_VALUE)
-        );
-        fondoBlancoLayout.setVerticalGroup(
-            fondoBlancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        SignIn.setBackground(new java.awt.Color(255, 51, 51));
+        SignIn.setForeground(new java.awt.Color(0, 0, 0));
+        SignIn.setText("Sing In");
+        SignIn.setBorder(null);
+        SignIn.setBorderPainted(false);
+        SignIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        fondoPrincipal.add(SignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, 100, 50));
 
-        javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
-        fondo.setLayout(fondoLayout);
-        fondoLayout.setHorizontalGroup(
-            fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondoLayout.createSequentialGroup()
-                .addComponent(fondoBlanco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(1, 1, 1)
-                .addComponent(secondCapa, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE))
-        );
-        fondoLayout.setVerticalGroup(
-            fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondoBlanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(secondCapa, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
-        );
+        create.setBackground(new java.awt.Color(255, 255, 255));
+        create.setForeground(new java.awt.Color(0, 0, 0));
+        create.setText("Create Account");
+        create.setBorder(null);
+        create.setBorderPainted(false);
+        create.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        create.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createActionPerformed(evt);
+            }
+        });
+        fondoPrincipal.add(create, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 450, 110, 50));
+
+        loginImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/5364714.jpg"))); // NOI18N
+        loginImg.setText("jLabel1");
+        fondoPrincipal.add(loginImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, 740, 600));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(fondoPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(fondoPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usernameActionPerformed
+
+    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailActionPerformed
+
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordActionPerformed
+
+    private void createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_createActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        FlatOneDarkIJTheme.setup();
+       FlatMaterialDesignDarkIJTheme.setup();
+       
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -125,9 +156,13 @@ public class IniciarSesion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel fondo;
-    private javax.swing.JPanel fondoBlanco;
-    private javax.swing.JPanel secondCapa;
-    private javax.swing.JLabel textOne;
+    private javax.swing.JButton SignIn;
+    private javax.swing.JButton create;
+    private javax.swing.JTextField email;
+    private javax.swing.JPanel fondoPrincipal;
+    private javax.swing.JLabel loginImg;
+    private javax.swing.JTextField password;
+    private javax.swing.JLabel text;
+    private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

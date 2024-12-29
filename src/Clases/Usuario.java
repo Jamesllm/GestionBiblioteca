@@ -10,13 +10,34 @@ package Clases;
  */
 public class Usuario {
     private String codigo, nombre, apellidos, dni;
+    private String userName, password;
 
-    public Usuario(String codigo, String nombre, String apellidos, String dni) {
+    public Usuario(String codigo, String nombre, String apellidos, String dni, String userName, String password) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
+        this.userName = userName;
+        this.password = password;
     }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    
 
 
     public String getNombre() {
