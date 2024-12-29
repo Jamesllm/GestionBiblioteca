@@ -29,6 +29,7 @@ CREATE TABLE usuario (
     apellidos VARCHAR(255) NOT NULL, 
     dni VARCHAR(28) NOT NULL,
     userName VARCHAR(255) NOT NULL, 
-    password VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL,
+    estado BIT DEFAULT 1, -- 1 = Activo, 0 = Inactivo
 );
  
