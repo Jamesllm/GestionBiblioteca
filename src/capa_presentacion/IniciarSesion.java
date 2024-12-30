@@ -35,7 +35,6 @@ public class IniciarSesion extends javax.swing.JFrame {
         username = new javax.swing.JTextField();
         password = new javax.swing.JTextField();
         SignIn = new javax.swing.JButton();
-        create = new javax.swing.JButton();
         loginImg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,7 +70,6 @@ public class IniciarSesion extends javax.swing.JFrame {
         });
         fondoPrincipal.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 300, 50));
         username.getAccessibleContext().setAccessibleName("");
-        username.getAccessibleContext().setAccessibleDescription("");
 
         password.setBackground(new java.awt.Color(255, 255, 255));
         password.setForeground(new java.awt.Color(0, 0, 0));
@@ -88,20 +86,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         SignIn.setBorder(null);
         SignIn.setBorderPainted(false);
         SignIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        fondoPrincipal.add(SignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, 100, 50));
-
-        create.setBackground(new java.awt.Color(255, 255, 255));
-        create.setForeground(new java.awt.Color(0, 0, 0));
-        create.setText("Create Account");
-        create.setBorder(null);
-        create.setBorderPainted(false);
-        create.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        create.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createActionPerformed(evt);
-            }
-        });
-        fondoPrincipal.add(create, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 450, 110, 50));
+        fondoPrincipal.add(SignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, 100, 50));
 
         loginImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/5364714.jpg"))); // NOI18N
         loginImg.setText("jLabel1");
@@ -136,10 +121,6 @@ public class IniciarSesion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordActionPerformed
 
-    private void createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_createActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -157,7 +138,6 @@ public class IniciarSesion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SignIn;
-    private javax.swing.JButton create;
     private javax.swing.JTextField email;
     private javax.swing.JPanel fondoPrincipal;
     private javax.swing.JLabel loginImg;
