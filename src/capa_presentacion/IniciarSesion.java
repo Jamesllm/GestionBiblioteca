@@ -5,7 +5,6 @@
 package capa_presentacion;
 
 //import com.formdev.flatlaf.intellijthemes.FlatMaterialDesignDarkIJTheme;
-
 /**
  *
  * @author Alex
@@ -18,7 +17,6 @@ public class IniciarSesion extends javax.swing.JFrame {
     public IniciarSesion() {
         initComponents();
     }
- 
 
     /**
      * This method is called from within the constructor to initialize the form.

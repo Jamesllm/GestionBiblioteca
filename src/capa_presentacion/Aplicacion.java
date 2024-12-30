@@ -12,16 +12,17 @@ import java.sql.SQLException;
 public class Aplicacion {
 
     private static Connection conexion;
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // Aplicar cambio de interfaz grafica
-         FlatOneDarkIJTheme.setup();
-        
+        FlatOneDarkIJTheme.setup();
+
         IniciarSesion is = new IniciarSesion();
         is.setVisible(true);
-        
+
         clsConexion conexionBD = clsConexion.getInstancia();
 
         try {
@@ -30,5 +31,5 @@ public class Aplicacion {
             e.printStackTrace();
         }
     }
-    
+
 }
