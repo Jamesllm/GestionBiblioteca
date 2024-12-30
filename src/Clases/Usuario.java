@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Clases;
 
 /**
@@ -9,16 +5,19 @@ package Clases;
  * @author Alex
  */
 public class Usuario {
+
     private String codigo, nombre, apellidos, dni;
     private String userName, password;
+    private boolean estado;
 
-    public Usuario(String codigo, String nombre, String apellidos, String dni, String userName, String password) {
+    public Usuario(String codigo, String nombre, String apellidos, String dni, String userName, String password, boolean estado) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
         this.userName = userName;
         this.password = password;
+        this.estado = estado;
     }
 
     public String getUserName() {
@@ -36,9 +35,6 @@ public class Usuario {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    
-
 
     public String getNombre() {
         return nombre;
@@ -71,17 +67,21 @@ public class Usuario {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-    
 
-   
-    @Override
-    public String toString() {
-        return "Codigo: " + codigo + 
-                "nombre: " + nombre +
-                "Apellido: " + apellidos +
-                "DNI: " + dni;
-        
+    public boolean isEstado() {
+        return estado;
     }
 
-}
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
 
+    @Override
+    public String toString() {
+        return "Codigo: " + codigo
+                + "nombre: " + nombre
+                + "Apellido: " + apellidos
+                + "DNI: " + dni;
+
+    }
+}
