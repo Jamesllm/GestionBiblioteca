@@ -20,7 +20,7 @@ END
 GO
 
 -- Usar la nueva base de datos
-USE contentFlow;
+USE biblioteca;
 GO
 
 CREATE TABLE usuario (
