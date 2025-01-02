@@ -5,6 +5,8 @@
 package capa_presentacion;
 
 import com.formdev.flatlaf.intellijthemes.FlatMaterialDesignDarkIJTheme;
+import java.awt.Color;
+import java.util.HashSet;
 
 /**
  *
@@ -50,7 +52,13 @@ public class IniciarSesion extends javax.swing.JFrame {
         fondoPrincipal.add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 370, 50));
 
         email.setBackground(new java.awt.Color(255, 255, 255));
-        email.setForeground(new java.awt.Color(0, 0, 0));
+        email.setForeground(new java.awt.Color(102, 102, 102));
+        email.setText("email");
+        email.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                emailMousePressed(evt);
+            }
+        });
         email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailActionPerformed(evt);
@@ -59,20 +67,32 @@ public class IniciarSesion extends javax.swing.JFrame {
         fondoPrincipal.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 300, 50));
 
         username.setBackground(new java.awt.Color(255, 255, 255));
-        username.setForeground(new java.awt.Color(0, 0, 0));
+        username.setForeground(new java.awt.Color(102, 102, 102));
+        username.setText("usuario");
         username.setToolTipText("");
         username.setActionCommand("<Not Set>");
         username.setName(""); // NOI18N
-        username.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usernameActionPerformed(evt);
+        username.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                usernameFocusGained(evt);
+            }
+        });
+        username.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                usernameMousePressed(evt);
             }
         });
         fondoPrincipal.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 300, 50));
         username.getAccessibleContext().setAccessibleName("");
 
         password.setBackground(new java.awt.Color(255, 255, 255));
-        password.setForeground(new java.awt.Color(0, 0, 0));
+        password.setForeground(new java.awt.Color(102, 102, 102));
+        password.setText("contraseña");
+        password.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                passwordMousePressed(evt);
+            }
+        });
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordActionPerformed(evt);
@@ -109,10 +129,6 @@ public class IniciarSesion extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usernameActionPerformed
-
     private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_emailActionPerformed
@@ -120,6 +136,48 @@ public class IniciarSesion extends javax.swing.JFrame {
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordActionPerformed
+
+    private void usernameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameMousePressed
+        // TODO add your handling code here:
+        
+         if (email.getText() != "" || password.getText() != "") {
+            username.setText("");
+            username.setForeground(Color.black);
+            password.setText("contraseña");
+            password.setForeground(Color.gray);
+            email.setText("email");
+            email.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_usernameMousePressed
+
+    private void passwordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMousePressed
+        // TODO add your handling code here:
+         if (username.getText() != "" || email.getText() != "") {
+            username.setText("usuario");
+            username.setForeground(Color.gray);
+            password.setText("");
+            password.setForeground(Color.black);
+            email.setText("email");
+            email.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_passwordMousePressed
+
+    private void emailMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailMousePressed
+        // TODO add your handling code here:
+        if (username.getText() != "" || password.getText() != "") {
+            username.setText("usuario");
+            username.setForeground(Color.gray);
+            password.setText("contraseña");
+            password.setForeground(Color.gray);
+            email.setText("");
+            email.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_emailMousePressed
+
+    private void usernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusGained
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_usernameFocusGained
 
     /**
      * @param args the command line arguments
