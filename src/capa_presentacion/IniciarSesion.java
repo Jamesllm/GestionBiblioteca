@@ -5,8 +5,6 @@
 package capa_presentacion;
 
 import com.formdev.flatlaf.intellijthemes.FlatMaterialDesignDarkIJTheme;
-import java.awt.Color;
-import java.util.HashSet;
 
 /**
  *
@@ -20,7 +18,6 @@ public class IniciarSesion extends javax.swing.JFrame {
     public IniciarSesion() {
         initComponents();
     }
- 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,160 +28,130 @@ public class IniciarSesion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        fondoPrincipal = new javax.swing.JPanel();
-        text = new javax.swing.JLabel();
-        email = new javax.swing.JTextField();
-        username = new javax.swing.JTextField();
-        password = new javax.swing.JTextField();
-        SignIn = new javax.swing.JButton();
-        loginImg = new javax.swing.JLabel();
+        backround = new javax.swing.JPanel();
+        welcome = new javax.swing.JPanel();
+        Login = new javax.swing.JLabel();
+        Username = new javax.swing.JTextField();
+        password = new javax.swing.JPasswordField();
+        labelUsername = new javax.swing.JLabel();
+        labelPassword = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        notUse = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        fondoPrincipal.setBackground(new java.awt.Color(255, 255, 255));
-        fondoPrincipal.setMinimumSize(new java.awt.Dimension(800, 600));
-        fondoPrincipal.setPreferredSize(new java.awt.Dimension(800, 600));
-        fondoPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        backround.setBackground(new java.awt.Color(255, 255, 255));
+        backround.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        text.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 34)); // NOI18N
-        text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        text.setText("Welcome!");
-        fondoPrincipal.add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 370, 50));
+        welcome.setBackground(new java.awt.Color(150, 194, 219));
 
-        email.setBackground(new java.awt.Color(255, 255, 255));
-        email.setForeground(new java.awt.Color(102, 102, 102));
-        email.setText("email");
-        email.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                emailMousePressed(evt);
-            }
-        });
-        email.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailActionPerformed(evt);
-            }
-        });
-        fondoPrincipal.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 300, 50));
+        Login.setBackground(new java.awt.Color(102, 102, 102));
+        Login.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        Login.setForeground(new java.awt.Color(51, 51, 51));
+        Login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Login.setText("Iniciar Sesion");
+        Login.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        username.setBackground(new java.awt.Color(255, 255, 255));
-        username.setForeground(new java.awt.Color(102, 102, 102));
-        username.setText("usuario");
-        username.setToolTipText("");
-        username.setActionCommand("<Not Set>");
-        username.setName(""); // NOI18N
-        username.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                usernameFocusGained(evt);
-            }
-        });
-        username.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                usernameMousePressed(evt);
-            }
-        });
-        fondoPrincipal.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 300, 50));
-        username.getAccessibleContext().setAccessibleName("");
+        Username.setBackground(new java.awt.Color(150, 194, 219));
+        Username.setForeground(new java.awt.Color(102, 102, 102));
+        Username.setText("Ingrese su usuario");
+        Username.setActionCommand("<Not Set>");
+        Username.setBorder(null);
+        Username.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        Username.setInheritsPopupMenu(true);
 
-        password.setBackground(new java.awt.Color(255, 255, 255));
+        password.setBackground(new java.awt.Color(150, 194, 219));
         password.setForeground(new java.awt.Color(102, 102, 102));
-        password.setText("contraseña");
-        password.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                passwordMousePressed(evt);
-            }
-        });
-        password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordActionPerformed(evt);
-            }
-        });
-        fondoPrincipal.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 300, 50));
+        password.setText("********");
+        password.setBorder(null);
+        password.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        password.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        password.setSelectedTextColor(new java.awt.Color(0, 0, 0));
 
-        SignIn.setBackground(new java.awt.Color(255, 51, 51));
-        SignIn.setForeground(new java.awt.Color(0, 0, 0));
-        SignIn.setText("Sing In");
-        SignIn.setBorder(null);
-        SignIn.setBorderPainted(false);
-        SignIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        fondoPrincipal.add(SignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, 100, 50));
+        labelUsername.setForeground(new java.awt.Color(51, 51, 51));
+        labelUsername.setText("Usuario");
 
-        loginImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/5364714.jpg"))); // NOI18N
-        loginImg.setText("jLabel1");
-        fondoPrincipal.add(loginImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, 740, 600));
+        labelPassword.setForeground(new java.awt.Color(51, 51, 51));
+        labelPassword.setText("Contraseña");
+
+        javax.swing.GroupLayout welcomeLayout = new javax.swing.GroupLayout(welcome);
+        welcome.setLayout(welcomeLayout);
+        welcomeLayout.setHorizontalGroup(
+            welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Login, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+            .addGroup(welcomeLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelPassword)
+                    .addComponent(labelUsername)
+                    .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                        .addComponent(Username))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        welcomeLayout.setVerticalGroup(
+            welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(welcomeLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(labelUsername)
+                .addGap(29, 29, 29)
+                .addComponent(Username, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(labelPassword)
+                .addGap(26, 26, 26)
+                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(265, Short.MAX_VALUE))
+        );
+
+        backround.add(welcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 420, 580));
+
+        notUse.setBackground(new java.awt.Color(229, 237, 241));
+
+        javax.swing.GroupLayout notUseLayout = new javax.swing.GroupLayout(notUse);
+        notUse.setLayout(notUseLayout);
+        notUseLayout.setHorizontalGroup(
+            notUseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 150, Short.MAX_VALUE)
+        );
+        notUseLayout.setVerticalGroup(
+            notUseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 580, Short.MAX_VALUE)
+        );
+
+        backround.add(notUse, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 150, 580));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondoPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(backround, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(fondoPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(backround, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emailActionPerformed
-
-    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordActionPerformed
-
-    private void usernameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameMousePressed
-        // TODO add your handling code here:
-        
-         if (email.getText() != "" || password.getText() != "") {
-            username.setText("");
-            username.setForeground(Color.black);
-            password.setText("contraseña");
-            password.setForeground(Color.gray);
-            email.setText("email");
-            email.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_usernameMousePressed
-
-    private void passwordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMousePressed
-        // TODO add your handling code here:
-         if (username.getText() != "" || email.getText() != "") {
-            username.setText("usuario");
-            username.setForeground(Color.gray);
-            password.setText("");
-            password.setForeground(Color.black);
-            email.setText("email");
-            email.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_passwordMousePressed
-
-    private void emailMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailMousePressed
-        // TODO add your handling code here:
-        if (username.getText() != "" || password.getText() != "") {
-            username.setText("usuario");
-            username.setForeground(Color.gray);
-            password.setText("contraseña");
-            password.setForeground(Color.gray);
-            email.setText("");
-            email.setForeground(Color.black);
-        }
-    }//GEN-LAST:event_emailMousePressed
-
-    private void usernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusGained
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_usernameFocusGained
-
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-       FlatMaterialDesignDarkIJTheme.setup();
-       
+        /* Set the Nimbus look and feel */
+        
+        FlatMaterialDesignDarkIJTheme.setup();
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -195,12 +162,15 @@ public class IniciarSesion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton SignIn;
-    private javax.swing.JTextField email;
-    private javax.swing.JPanel fondoPrincipal;
-    private javax.swing.JLabel loginImg;
-    private javax.swing.JTextField password;
-    private javax.swing.JLabel text;
-    private javax.swing.JTextField username;
+    private javax.swing.JLabel Login;
+    private javax.swing.JTextField Username;
+    private javax.swing.JPanel backround;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel labelPassword;
+    private javax.swing.JLabel labelUsername;
+    private javax.swing.JPanel notUse;
+    private javax.swing.JPasswordField password;
+    private javax.swing.JPanel welcome;
     // End of variables declaration//GEN-END:variables
 }
