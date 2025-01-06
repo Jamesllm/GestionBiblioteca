@@ -14,6 +14,8 @@ import javax.swing.text.JTextComponent;
  * @author Alex
  */
 public class IniciarSesion extends javax.swing.JFrame {
+    Aplicacion ajustarImagen = new Aplicacion();
+    
 
     /**
      * Creates new form IniciarSesion
@@ -22,6 +24,8 @@ public class IniciarSesion extends javax.swing.JFrame {
         initComponents();
         cambiarColor(Username);
         cambiarColor(password);
+        ajustarImagen.ajustarImagen(image, "/imagenes/lg.png");
+
         
     }
     
@@ -52,6 +56,8 @@ public class IniciarSesion extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         SignIn = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        image = new javax.swing.JLabel();
         notUse = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -109,14 +115,15 @@ public class IniciarSesion extends javax.swing.JFrame {
         SignIn.setBorderPainted(false);
         SignIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SignIn.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
-        SignIn.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                SignInFocusLost(evt);
-            }
-        });
-        SignIn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                SignInMousePressed(evt);
+
+        jButton1.setBackground(new java.awt.Color(93, 109, 126));
+        jButton1.setForeground(new java.awt.Color(51, 51, 51));
+        jButton1.setText("Create Account");
+        jButton1.setBorderPainted(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -124,18 +131,22 @@ public class IniciarSesion extends javax.swing.JFrame {
         welcome.setLayout(welcomeLayout);
         welcomeLayout.setHorizontalGroup(
             welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Login, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+            .addComponent(Login, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(welcomeLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelPassword)
                     .addComponent(labelUsername)
-                    .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                        .addComponent(Username))
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(welcomeLayout.createSequentialGroup()
+                            .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(76, 76, 76)
+                            .addComponent(jButton1))
+                        .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                            .addComponent(Username))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         welcomeLayout.setVerticalGroup(
@@ -143,24 +154,29 @@ public class IniciarSesion extends javax.swing.JFrame {
             .addGroup(welcomeLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
+                .addGap(22, 22, 22)
                 .addComponent(labelUsername)
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
                 .addComponent(Username, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(39, 39, 39)
                 .addComponent(labelPassword)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72)
-                .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(147, Short.MAX_VALUE))
         );
 
         backround.add(welcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 420, 580));
+
+        image.setText("imagen");
+        backround.add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 310, 330));
 
         notUse.setBackground(new java.awt.Color(229, 237, 241));
 
@@ -221,14 +237,9 @@ public class IniciarSesion extends javax.swing.JFrame {
         
     }//GEN-LAST:event_passwordMousePressed
 
-    private void SignInMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignInMousePressed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_SignInMousePressed
-
-    private void SignInFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_SignInFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SignInFocusLost
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,9 +247,14 @@ public class IniciarSesion extends javax.swing.JFrame {
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         FlatMaterialDesignDarkIJTheme.setup();
-        UIManager.put( "Button.arc", 999);
-
+        
+        //elimina los bordes sobresalientes y hace los bordes redondeados 
+        UIManager.put("Button.arc", 999);
+        UIManager.put( "Component.focusWidth", 0 );
+        //---------------------->
         /* Create and display the form */
+       
+     
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new IniciarSesion().setVisible(true);
@@ -251,6 +267,8 @@ public class IniciarSesion extends javax.swing.JFrame {
     private javax.swing.JButton SignIn;
     private javax.swing.JTextField Username;
     private javax.swing.JPanel backround;
+    private javax.swing.JLabel image;
+    private javax.swing.JButton jButton1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel labelPassword;

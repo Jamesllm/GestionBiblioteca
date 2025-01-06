@@ -2,8 +2,12 @@ package capa_presentacion;
 
 import capa_datos.clsConexion;
 import com.formdev.flatlaf.intellijthemes.FlatOneDarkIJTheme;
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.SQLException;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -29,6 +33,12 @@ public class Aplicacion {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        
+    }
+    // metodo para ajustar la imagen del login
+    public void ajustarImagen(JLabel labelName, String ruta)
+    {
+        labelName.setIcon(new ImageIcon(new ImageIcon(getClass().getResource(ruta)).getImage().getScaledInstance(labelName.getWidth(), labelName.getHeight(), Image.SCALE_DEFAULT)));
     }
     
 }
