@@ -5,6 +5,9 @@
 package capa_presentacion;
 
 import com.formdev.flatlaf.intellijthemes.FlatMaterialDesignDarkIJTheme;
+import java.awt.Color;
+import javax.swing.UIManager;
+import javax.swing.text.JTextComponent;
 
 /**
  *
@@ -17,7 +20,18 @@ public class IniciarSesion extends javax.swing.JFrame {
      */
     public IniciarSesion() {
         initComponents();
+        cambiarColor(Username);
+        cambiarColor(password);
+        
     }
+    
+    // Metodo para cambiar el color del cursor "textCursor"
+    private static void cambiarColor(JTextComponent name)
+    {
+        name.setCaretColor(new Color(52,73,94));
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,6 +51,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         labelPassword = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        SignIn = new javax.swing.JButton();
         notUse = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,8 +74,14 @@ public class IniciarSesion extends javax.swing.JFrame {
         Username.setText("Ingrese su usuario");
         Username.setActionCommand("<Not Set>");
         Username.setBorder(null);
-        Username.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        Username.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         Username.setInheritsPopupMenu(true);
+        Username.setSelectedTextColor(new java.awt.Color(51, 51, 51));
+        Username.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                UsernameMousePressed(evt);
+            }
+        });
 
         password.setBackground(new java.awt.Color(150, 194, 219));
         password.setForeground(new java.awt.Color(102, 102, 102));
@@ -69,12 +90,35 @@ public class IniciarSesion extends javax.swing.JFrame {
         password.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         password.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         password.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        password.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                passwordMousePressed(evt);
+            }
+        });
 
         labelUsername.setForeground(new java.awt.Color(51, 51, 51));
         labelUsername.setText("Usuario");
 
         labelPassword.setForeground(new java.awt.Color(51, 51, 51));
         labelPassword.setText("Contraseña");
+
+        SignIn.setBackground(new java.awt.Color(132, 185, 215));
+        SignIn.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        SignIn.setForeground(new java.awt.Color(51, 51, 51));
+        SignIn.setText("Sign In");
+        SignIn.setBorderPainted(false);
+        SignIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SignIn.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        SignIn.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                SignInFocusLost(evt);
+            }
+        });
+        SignIn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                SignInMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout welcomeLayout = new javax.swing.GroupLayout(welcome);
         welcome.setLayout(welcomeLayout);
@@ -84,6 +128,7 @@ public class IniciarSesion extends javax.swing.JFrame {
             .addGroup(welcomeLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelPassword)
                     .addComponent(labelUsername)
                     .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -110,7 +155,9 @@ public class IniciarSesion extends javax.swing.JFrame {
                 .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(265, Short.MAX_VALUE))
+                .addGap(72, 72, 72)
+                .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(147, Short.MAX_VALUE))
         );
 
         backround.add(welcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 420, 580));
@@ -145,13 +192,51 @@ public class IniciarSesion extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void UsernameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsernameMousePressed
+        // TODO add your handling code here:
+        if(Username.getText().equals("Ingrese su usuario"))
+        {
+            Username.setText("");
+            Username.setForeground(Color.black);
+        }
+        if(String.valueOf(password.getPassword()).isEmpty())
+        {
+            password.setText("********");
+            password.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_UsernameMousePressed
+
+    private void passwordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMousePressed
+        // TODO add your handling code here:
+        if(String.valueOf(password.getPassword()).equals("********"))
+        {
+            password.setText("");
+            password.setForeground(Color.black);
+        }
+        if(Username.getText().isEmpty())
+        {
+            Username.setText("Ingrese su usuario");
+            Username.setForeground(Color.gray);
+        }
+        
+    }//GEN-LAST:event_passwordMousePressed
+
+    private void SignInMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignInMousePressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_SignInMousePressed
+
+    private void SignInFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_SignInFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SignInFocusLost
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        
         FlatMaterialDesignDarkIJTheme.setup();
+        UIManager.put( "Button.arc", 999);
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -163,6 +248,7 @@ public class IniciarSesion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Login;
+    private javax.swing.JButton SignIn;
     private javax.swing.JTextField Username;
     private javax.swing.JPanel backround;
     private javax.swing.JSeparator jSeparator1;
