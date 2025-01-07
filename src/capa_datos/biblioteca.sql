@@ -1,35 +1,73 @@
-USE master;
-
--- Verificar si la base de datos existe
-IF EXISTS (SELECT name FROM sys.databases WHERE name = 'biblioteca')
-BEGIN
-    -- Desconectar a todos los usuarios de la base de datos para evitar conflictos al eliminarla
-    ALTER DATABASE biblioteca SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-
-    -- Eliminar la base de datos
-    DROP DATABASE biblioteca;
-END
-
--- Crear la base de datos con collation en español y UTF-8
-IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'biblioteca')
-BEGIN
-    CREATE DATABASE biblioteca
-    COLLATE Modern_Spanish_100_CI_AI_SC_UTF8;
-END
-
-GO
-
--- Usar la nueva base de datos
-USE biblioteca;
-GO
-
-CREATE TABLE usuario (
-    codigo VARCHAR(10) PRIMARY KEY NOT NULL DEFAULT CONVERT(VARCHAR(10), NEWID()),  
-    nombre VARCHAR(255) NOT NULL, 
-    apellidos VARCHAR(255) NOT NULL, 
-    dni VARCHAR(28) NOT NULL,
-    userName VARCHAR(255) NOT NULL, 
-    password VARCHAR(255) NOT NULL,
-    estado BIT DEFAULT 1, -- 1 = Activo, 0 = Inactivo
+-- Users Table
+CREATE TABLE user (
+    code TEXT PRIMARY KEY NOT NULL DEFAULT (lower(hex(randomblob(16)))),  
+    name TEXT NOT NULL, 
+    surnames TEXT, 
+    dni TEXT NOT NULL,
+    email TEXT NOT NULL,
+    userName TEXT, 
+    password TEXT NOT NULL,
+    state INTEGER DEFAULT 1,
+    role INTEGER NOT NULL DEFAULT 0
 );
- 
+
+-- Tabla prestamo
+CREATE TABLE loan (
+    id INTEGER PRIMARY KEY NOT NULL,
+    start_date TEXT,  -- Use TEXT for date/time in SQLite
+    start_time TEXT,
+    end_date TEXT,
+    end_time TEXT,
+    book_code INTEGER, 
+    user_code TEXT, 
+    state INTEGER DEFAULT 1,
+    register_code INTEGER,
+    FOREIGN KEY (book_code) REFERENCES book (id),
+    FOREIGN KEY (user_code) REFERENCES user (code)
+);
+
+-- Tabla usuario-prestamo
+CREATE TABLE user_loan (
+    user_code TEXT NOT NULL,
+    loan_code INTEGER NOT NULL,
+    state INTEGER DEFAULT 1,
+    FOREIGN KEY (user_code) REFERENCES user (code),
+    FOREIGN KEY (loan_code) REFERENCES loan (id)
+);
+
+
+-- Tabla Libro
+CREATE TABLE book (
+    id INTEGER PRIMARY KEY NOT NULL,
+    title TEXT,
+    image TEXT,
+    pdf TEXT,
+    author_id INTEGER,  -- Referencia a autor
+    category_id INTEGER,  -- Referencia a categoria
+    language_id INTEGER,  -- Referencia a idioma
+    state INTEGER DEFAULT 1,
+    FOREIGN KEY (author_id) REFERENCES author (id),
+    FOREIGN KEY (category_id) REFERENCES category (id),
+    FOREIGN KEY (language_id) REFERENCES language (id)
+);
+
+-- Tabla categoria
+CREATE TABLE category (
+    id INTEGER PRIMARY KEY NOT NULL,
+    name TEXT NOT NULL,
+    state INTEGER DEFAULT 1
+);
+
+-- Tabla idioma
+CREATE TABLE language (
+    id INTEGER PRIMARY KEY NOT NULL,
+    language_name TEXT NOT NULL,
+    state INTEGER DEFAULT 1
+);
+
+-- Tabla autor
+CREATE TABLE author (
+    id INTEGER PRIMARY KEY NOT NULL,
+    name TEXT NOT NULL,
+    state INTEGER DEFAULT 1
+);
