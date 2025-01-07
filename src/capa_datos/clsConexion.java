@@ -29,7 +29,7 @@ public class clsConexion {
     // Método para obtener la conexión a la base de datos
     public Connection getConexion() throws SQLException {
         if (conexion == null || conexion.isClosed()) {
-            String conexionUrl = "jdbc:sqlite:chinook.db";
+            String conexionUrl = "jdbc:sqlite:biblioteca.db";
             try {
                 Class.forName("org.sqlite.JDBC");
                 conexion = DriverManager.getConnection(conexionUrl);
