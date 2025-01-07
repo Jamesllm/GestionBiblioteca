@@ -5,7 +5,6 @@ import com.formdev.flatlaf.intellijthemes.FlatOneDarkIJTheme;
 import java.awt.Image;
 import java.sql.Connection;
 import java.sql.SQLException;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
