@@ -3,6 +3,7 @@ package capa_datos;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import org.sqlite.JDBC;
 
 /**
  *
@@ -13,16 +14,11 @@ public class clsConexion {
     private static clsConexion instancia;
     private Connection conexion;
 
-    private String host = "localhost:";
-    private String port = "1433";
-    private String database = "pvl";
-    private String user = "sa";
-    private String password = "12kayden$$$$043";
-
+    // Constructor privado para evitar instancias externas
     private clsConexion() {
-        // Constructor privado para evitar instancias externas
     }
 
+    // Método para obtener la instancia de la clase (patrón Singleton)
     public static clsConexion getInstancia() {
         if (instancia == null) {
             instancia = new clsConexion();
@@ -30,34 +26,32 @@ public class clsConexion {
         return instancia;
     }
 
+    // Método para obtener la conexión a la base de datos
     public Connection getConexion() throws SQLException {
         if (conexion == null || conexion.isClosed()) {
-            String conexionUrl = "jdbc:sqlserver://" + host + port + ";"
-                    + "databaseName=" + database + ";"
-                    + "user=" + user + ";"
-                    + "password=" + password + ";"
-                    + "encrypt=true;"
-                    + "trustServerCertificate=true;"
-                    + "loginTimeout=30;";
-
+            String conexionUrl = "jdbc:sqlite:chinook.db";
             try {
+                Class.forName("org.sqlite.JDBC");
                 conexion = DriverManager.getConnection(conexionUrl);
-                System.out.println("Conexion exitosa a la base de datos");
-            } catch (SQLException ex) {
-                System.out.println("Error en la conexion: " + ex.getMessage());
-                throw ex;
+                System.out.println("Conexión a SQLite establecida.");
+                
+            } catch (ClassNotFoundException ce) {
+                ce.printStackTrace();
+            } catch (SQLException sqle) {
+                sqle.printStackTrace();
             }
         }
         return conexion;
     }
 
+    // Método para cerrar la conexión
     public void cerrarConexion() {
         if (conexion != null) {
             try {
                 conexion.close();
                 System.out.println("Conexión a la base de datos cerrada correctamente.");
             } catch (SQLException e) {
-                e.printStackTrace();
+                System.out.println("Error al cerrar la conexión: " + e.getMessage());
             }
         }
     }
