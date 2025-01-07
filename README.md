@@ -1,3 +1,3 @@
 PROYECTO 1 - Gestion Biblioteca
 
-<img src="src/imagenes/estructura-proyecto.png" />
+<img src="src/imagenes/Proyecto-Java.png" />
