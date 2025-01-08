@@ -1,9 +1,12 @@
 package capa_presentacion;
 
 import capa_datos.clsConexion;
+import com.formdev.flatlaf.intellijthemes.FlatOneDarkIJTheme;
+import java.awt.Image;
+import java.sql.Connection;
 import java.sql.SQLException;
-import capa_presentacion.admin.Index;
-import com.formdev.flatlaf.FlatLightLaf;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -11,24 +14,30 @@ import com.formdev.flatlaf.FlatLightLaf;
  */
 public class Aplicacion {
 
+    private static Connection conexion;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // Aplicar cambio de interfaz grafica
-        FlatLightLaf.setup();
-
+         FlatOneDarkIJTheme.setup();
+        
+        IniciarSesion is = new IniciarSesion();
+        is.setVisible(true);
+        
         clsConexion conexionBD = clsConexion.getInstancia();
 
         try {
-            conexionBD.getConexion();
+            conexion = conexionBD.getConexion();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         
-        Index indexAdmin = new Index();
-        indexAdmin.setVisible(true);
-        
     }
-
+    // metodo para ajustar la imagen del login
+    public void ajustarImagen(JLabel labelName, String ruta)
+    {
+        labelName.setIcon(new ImageIcon(new ImageIcon(getClass().getResource(ruta)).getImage().getScaledInstance(labelName.getWidth(), labelName.getHeight(), Image.SCALE_DEFAULT)));
+    }
+    
 }
