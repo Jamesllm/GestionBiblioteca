@@ -142,9 +142,9 @@ public class IniciarSesion extends javax.swing.JFrame {
                             .addGap(76, 76, 76)
                             .addComponent(jButton1))
                         .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                            .addComponent(Username))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(password)
+                            .addComponent(Username, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE))))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         welcomeLayout.setVerticalGroup(
             welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
