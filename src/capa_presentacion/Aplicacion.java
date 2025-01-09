@@ -4,7 +4,6 @@ import capa_datos.clsConexion;
 import com.formdev.flatlaf.intellijthemes.FlatMaterialDesignDarkIJTheme;
 import java.sql.Connection;
 import java.sql.SQLException;
-import javax.swing.UIManager;
 
 /**
  *
@@ -19,11 +18,11 @@ public class Aplicacion {
      */
     public static void main(String[] args) {
         /* Interfaz grafica Iniciar Sesion*/
+        Customizable borde = new Customizable();
         
         FlatMaterialDesignDarkIJTheme.setup();
-        UIManager.put( "Component.focusWidth", 0);
+        borde.FocusWidht();
         IniciarSesion is = new IniciarSesion();
-        CrearCuenta cuenta = new CrearCuenta();
         is.setVisible(true);
          //elimina los bordes sobresalientes y hace los bordes redondeados 
         

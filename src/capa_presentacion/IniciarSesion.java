@@ -14,41 +14,30 @@ import utilidades.ImagenController;
  * @author Alex
  */
 public class IniciarSesion extends javax.swing.JFrame {
+    Customizable personalizado = new Customizable();
 
 
     /**
      * Creates new form IniciarSesion
      */
+    
     public IniciarSesion() {
         initComponents();
-        cambiarColor(Username);
-        cambiarColor(password);
+        personalizado.cambiarColor(Username);
+        personalizado.cambiarColor(password);
         ImagenController.setImageLabel(image, "src/imagenes/lg.png");
         AplicarStyle();
     }
     
-    /* Metodo para personalizar los botones*/
-    
-    private void StyleButton(JButton button)
-    {
-    button.putClientProperty( "JButton.buttonType", "roundRect" );
-    }
-   
     private void AplicarStyle()
     {
-        StyleButton(SignIn);
-        StyleButton(createAccount);
+        personalizado.StyleButton(SignIn);
+        personalizado.StyleButton(createAccount);
     }
     
+
+
    
-
-
-    
-// Metodo para cambiar el color del cursor "textCursor"
-    private static void cambiarColor(JTextComponent name) {
-        name.setCaretColor(new Color(52, 73, 94));
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -133,6 +122,11 @@ public class IniciarSesion extends javax.swing.JFrame {
         createAccount.setText("Create Account");
         createAccount.setBorderPainted(false);
         createAccount.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        createAccount.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                createAccountMousePressed(evt);
+            }
+        });
         createAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createAccountActionPerformed(evt);
@@ -248,6 +242,21 @@ public class IniciarSesion extends javax.swing.JFrame {
     private void createAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_createAccountActionPerformed
+
+    private void createAccountMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAccountMousePressed
+        // TODO add your handling code here:
+        
+        if(createAccount.isFocusPainted() == true)
+        {
+            CrearCuenta nuevaCuenta = new CrearCuenta();
+            nuevaCuenta.setVisible(true);
+            // cierra la ventana
+            super.dispose();
+        }
+        
+        
+      
+    }//GEN-LAST:event_createAccountMousePressed
 
     /**
      * @param args the command line arguments

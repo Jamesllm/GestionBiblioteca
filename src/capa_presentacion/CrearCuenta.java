@@ -5,7 +5,6 @@
 package capa_presentacion;
 
 import java.awt.Color;
-import javax.swing.text.JTextComponent;
 import utilidades.ImagenController;
 
 /**
@@ -13,6 +12,7 @@ import utilidades.ImagenController;
  * @author Alex
  */
 public class CrearCuenta extends javax.swing.JFrame {
+    Customizable personalizado = new Customizable();
 
 
     /**
@@ -20,16 +20,23 @@ public class CrearCuenta extends javax.swing.JFrame {
      */
     public CrearCuenta() {
         initComponents();
-        cambiarColor(Username);
-        cambiarColor(password);
-
+        personalizado.cambiarColor(Username);
+        personalizado.cambiarColor(password);
         ImagenController.setImageLabel(image, "src/imagenes/lg.png");
+        AplicarStyle();
     }
+    
+    private void AplicarStyle()
+    {
+        personalizado.StyleButton(SignIn);
+    }
+    
+    
+    
 
-    // Metodo para cambiar el color del cursor "textCursor"
-    private static void cambiarColor(JTextComponent name) {
-        name.setCaretColor(new Color(52, 73, 94));
-    }
+   
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,7 +57,6 @@ public class CrearCuenta extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         SignIn = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         image = new javax.swing.JLabel();
         notUse = new javax.swing.JPanel();
 
@@ -110,17 +116,6 @@ public class CrearCuenta extends javax.swing.JFrame {
         SignIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SignIn.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
 
-        jButton1.setBackground(new java.awt.Color(93, 109, 126));
-        jButton1.setForeground(new java.awt.Color(51, 51, 51));
-        jButton1.setText("Create Account");
-        jButton1.setBorderPainted(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout welcomeLayout = new javax.swing.GroupLayout(welcome);
         welcome.setLayout(welcomeLayout);
         welcomeLayout.setHorizontalGroup(
@@ -136,12 +131,11 @@ public class CrearCuenta extends javax.swing.JFrame {
                     .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(welcomeLayout.createSequentialGroup()
                             .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(76, 76, 76)
-                            .addComponent(jButton1))
+                            .addGap(188, 188, 188))
                         .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(password)
                             .addComponent(Username, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE))))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
         welcomeLayout.setVerticalGroup(
             welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,9 +155,7 @@ public class CrearCuenta extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72)
-                .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(147, Short.MAX_VALUE))
         );
 
@@ -227,10 +219,6 @@ public class CrearCuenta extends javax.swing.JFrame {
 
     }//GEN-LAST:event_passwordMousePressed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -244,7 +232,6 @@ public class CrearCuenta extends javax.swing.JFrame {
     private javax.swing.JTextField Username;
     private javax.swing.JPanel backround;
     private javax.swing.JLabel image;
-    private javax.swing.JButton jButton1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel labelPassword;
