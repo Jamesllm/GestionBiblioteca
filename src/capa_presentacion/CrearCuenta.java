@@ -5,7 +5,6 @@
 package capa_presentacion;
 
 import java.awt.Color;
-import javax.swing.JButton;
 import javax.swing.text.JTextComponent;
 import utilidades.ImagenController;
 
@@ -13,38 +12,21 @@ import utilidades.ImagenController;
  *
  * @author Alex
  */
-public class IniciarSesion extends javax.swing.JFrame {
+public class CrearCuenta extends javax.swing.JFrame {
 
 
     /**
      * Creates new form IniciarSesion
      */
-    public IniciarSesion() {
+    public CrearCuenta() {
         initComponents();
         cambiarColor(Username);
         cambiarColor(password);
+
         ImagenController.setImageLabel(image, "src/imagenes/lg.png");
-        AplicarStyle();
     }
-    
-    /* Metodo para personalizar los botones*/
-    
-    private void StyleButton(JButton button)
-    {
-    button.putClientProperty( "JButton.buttonType", "roundRect" );
-    }
-   
-    private void AplicarStyle()
-    {
-        StyleButton(SignIn);
-        StyleButton(createAccount);
-    }
-    
-   
 
-
-    
-// Metodo para cambiar el color del cursor "textCursor"
+    // Metodo para cambiar el color del cursor "textCursor"
     private static void cambiarColor(JTextComponent name) {
         name.setCaretColor(new Color(52, 73, 94));
     }
@@ -68,7 +50,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         SignIn = new javax.swing.JButton();
-        createAccount = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         image = new javax.swing.JLabel();
         notUse = new javax.swing.JPanel();
 
@@ -128,14 +110,14 @@ public class IniciarSesion extends javax.swing.JFrame {
         SignIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SignIn.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
 
-        createAccount.setBackground(new java.awt.Color(93, 109, 126));
-        createAccount.setForeground(new java.awt.Color(51, 51, 51));
-        createAccount.setText("Create Account");
-        createAccount.setBorderPainted(false);
-        createAccount.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        createAccount.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setBackground(new java.awt.Color(93, 109, 126));
+        jButton1.setForeground(new java.awt.Color(51, 51, 51));
+        jButton1.setText("Create Account");
+        jButton1.setBorderPainted(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createAccountActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -155,7 +137,7 @@ public class IniciarSesion extends javax.swing.JFrame {
                         .addGroup(welcomeLayout.createSequentialGroup()
                             .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(76, 76, 76)
-                            .addComponent(createAccount))
+                            .addComponent(jButton1))
                         .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(password)
                             .addComponent(Username, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE))))
@@ -181,7 +163,7 @@ public class IniciarSesion extends javax.swing.JFrame {
                 .addGap(72, 72, 72)
                 .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(createAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(147, Short.MAX_VALUE))
         );
 
@@ -245,22 +227,24 @@ public class IniciarSesion extends javax.swing.JFrame {
 
     }//GEN-LAST:event_passwordMousePressed
 
-    private void createAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_createAccountActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-   
+    
+  
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Login;
     private javax.swing.JButton SignIn;
     private javax.swing.JTextField Username;
     private javax.swing.JPanel backround;
-    private javax.swing.JButton createAccount;
     private javax.swing.JLabel image;
+    private javax.swing.JButton jButton1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel labelPassword;

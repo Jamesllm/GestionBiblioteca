@@ -2,11 +2,9 @@ package capa_presentacion;
 
 import capa_datos.clsConexion;
 import com.formdev.flatlaf.intellijthemes.FlatMaterialDesignDarkIJTheme;
-import java.awt.Image;
 import java.sql.Connection;
 import java.sql.SQLException;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
+import javax.swing.UIManager;
 
 /**
  *
@@ -20,25 +18,43 @@ public class Aplicacion {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // Aplicar cambio de interfaz grafica
+        /* Interfaz grafica Iniciar Sesion*/
+        
         FlatMaterialDesignDarkIJTheme.setup();
-
+        UIManager.put( "Component.focusWidth", 0);
         IniciarSesion is = new IniciarSesion();
+        CrearCuenta cuenta = new CrearCuenta();
         is.setVisible(true);
+         //elimina los bordes sobresalientes y hace los bordes redondeados 
+        
+        /* Clases importantes para la interfaz de usuario*/
 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /*
+        
+        
+        
+        
+        
         clsConexion conexionBD = clsConexion.getInstancia();
-
         try {
             conexion = conexionBD.getConexion();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+*/
 
     }
 
-    // metodo para ajustar la imagen del login
-    public void ajustarImagen(JLabel labelName, String ruta) {
-        labelName.setIcon(new ImageIcon(new ImageIcon(getClass().getResource(ruta)).getImage().getScaledInstance(labelName.getWidth(), labelName.getHeight(), Image.SCALE_DEFAULT)));
-    }
-
+  
 }

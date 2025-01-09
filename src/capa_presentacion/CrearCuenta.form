@@ -72,7 +72,7 @@
                               <Group type="102" attributes="0">
                                   <Component id="SignIn" min="-2" pref="92" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-                                  <Component id="createAccount" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="password" max="32767" attributes="0"/>
@@ -104,7 +104,7 @@
                       <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="SignIn" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
-                          <Component id="createAccount" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                          <Component id="jButton1" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="147" max="32767" attributes="0"/>
                   </Group>
@@ -218,7 +218,7 @@
                 <Property name="debugGraphicsOptions" type="int" value="-1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="createAccount">
+            <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="7e" green="6d" red="5d" type="rgb"/>
@@ -233,7 +233,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createAccountActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
