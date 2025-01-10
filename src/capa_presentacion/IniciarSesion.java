@@ -4,6 +4,7 @@
  */
 package capa_presentacion;
 
+import utilidades.Customizable;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.text.JTextComponent;

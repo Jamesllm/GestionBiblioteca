@@ -4,7 +4,7 @@
  */
 package capa_presentacion;
 
-import java.awt.Color;
+import utilidades.Customizable;
 import utilidades.ImagenController;
 
 /**
@@ -22,6 +22,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         initComponents();
         personalizado.cambiarColor(Username);
         personalizado.cambiarColor(password);
+        personalizado.cambiarColor(email);
         ImagenController.setImageLabel(image, "src/imagenes/lg.png");
         AplicarStyle();
     }
@@ -57,6 +58,9 @@ public class CrearCuenta extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         SignIn = new javax.swing.JButton();
+        labelUsername1 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        email = new javax.swing.JTextField();
         image = new javax.swing.JLabel();
         notUse = new javax.swing.JPanel();
 
@@ -96,14 +100,9 @@ public class CrearCuenta extends javax.swing.JFrame {
         password.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         password.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         password.setSelectedTextColor(new java.awt.Color(0, 0, 0));
-        password.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                passwordMousePressed(evt);
-            }
-        });
 
         labelUsername.setForeground(new java.awt.Color(51, 51, 51));
-        labelUsername.setText("Usuario");
+        labelUsername.setText("Email");
 
         labelPassword.setForeground(new java.awt.Color(51, 51, 51));
         labelPassword.setText("Contraseña");
@@ -116,6 +115,14 @@ public class CrearCuenta extends javax.swing.JFrame {
         SignIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SignIn.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
 
+        labelUsername1.setForeground(new java.awt.Color(51, 51, 51));
+        labelUsername1.setText("Usuario");
+
+        email.setBackground(new java.awt.Color(150, 194, 219));
+        email.setForeground(new java.awt.Color(102, 102, 102));
+        email.setText("example@gmail.com");
+        email.setBorder(null);
+
         javax.swing.GroupLayout welcomeLayout = new javax.swing.GroupLayout(welcome);
         welcome.setLayout(welcomeLayout);
         welcomeLayout.setHorizontalGroup(
@@ -124,39 +131,44 @@ public class CrearCuenta extends javax.swing.JFrame {
             .addGroup(welcomeLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelPassword)
-                    .addComponent(labelUsername)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelUsername1)
+                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(welcomeLayout.createSequentialGroup()
-                            .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(188, 188, 188))
-                        .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(password)
-                            .addComponent(Username, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE))))
-                .addContainerGap(100, Short.MAX_VALUE))
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPassword)
+                    .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelUsername)
+                    .addComponent(Username, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         welcomeLayout.setVerticalGroup(
             welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(welcomeLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(labelUsername)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(42, 42, 42)
+                .addComponent(labelUsername1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Username, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(labelPassword)
+                .addGap(14, 14, 14)
+                .addComponent(labelUsername)
                 .addGap(18, 18, 18)
+                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(labelPassword)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
+                .addGap(26, 26, 26)
                 .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         backround.add(welcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 420, 580));
@@ -196,28 +208,7 @@ public class CrearCuenta extends javax.swing.JFrame {
 
     private void UsernameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsernameMousePressed
         // TODO add your handling code here:
-        if (Username.getText().equals("Ingrese su usuario")) {
-            Username.setText("");
-            Username.setForeground(Color.black);
-        }
-        if (String.valueOf(password.getPassword()).isEmpty()) {
-            password.setText("********");
-            password.setForeground(Color.gray);
-        }
     }//GEN-LAST:event_UsernameMousePressed
-
-    private void passwordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMousePressed
-        // TODO add your handling code here:
-        if (String.valueOf(password.getPassword()).equals("********")) {
-            password.setText("");
-            password.setForeground(Color.black);
-        }
-        if (Username.getText().isEmpty()) {
-            Username.setText("Ingrese su usuario");
-            Username.setForeground(Color.gray);
-        }
-
-    }//GEN-LAST:event_passwordMousePressed
 
     /**
      * @param args the command line arguments
@@ -231,11 +222,14 @@ public class CrearCuenta extends javax.swing.JFrame {
     private javax.swing.JButton SignIn;
     private javax.swing.JTextField Username;
     private javax.swing.JPanel backround;
+    private javax.swing.JTextField email;
     private javax.swing.JLabel image;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel labelPassword;
     private javax.swing.JLabel labelUsername;
+    private javax.swing.JLabel labelUsername1;
     private javax.swing.JPanel notUse;
     private javax.swing.JPasswordField password;
     private javax.swing.JPanel welcome;

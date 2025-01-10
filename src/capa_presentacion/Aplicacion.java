@@ -1,5 +1,6 @@
 package capa_presentacion;
 
+import utilidades.Customizable;
 import capa_datos.clsConexion;
 import com.formdev.flatlaf.intellijthemes.FlatMaterialDesignDarkIJTheme;
 import java.sql.Connection;
@@ -21,9 +22,10 @@ public class Aplicacion {
         Customizable borde = new Customizable();
         
         FlatMaterialDesignDarkIJTheme.setup();
-        borde.FocusWidht();
+        borde.FocusWidth();
         IniciarSesion is = new IniciarSesion();
         is.setVisible(true);
+        
          //elimina los bordes sobresalientes y hace los bordes redondeados 
         
         /* Clases importantes para la interfaz de usuario*/
