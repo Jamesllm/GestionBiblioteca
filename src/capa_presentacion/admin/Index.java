@@ -1,7 +1,6 @@
 package capa_presentacion.admin;
 
 import com.formdev.flatlaf.intellijthemes.FlatMaterialDesignDarkIJTheme;
-import java.awt.Color;
 import utilidades.ButtonChangeColor;
 
 /**
