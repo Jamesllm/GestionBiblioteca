@@ -59,11 +59,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Tema Claro"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLigthThemeActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnDarkTheme">
           <Properties>
             <Property name="text" type="java.lang.String" value="Tema Oscuro"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDarkThemeActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

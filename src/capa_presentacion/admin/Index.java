@@ -1,13 +1,21 @@
 package capa_presentacion.admin;
 
-import com.formdev.flatlaf.intellijthemes.FlatMaterialDesignDarkIJTheme;
 import utilidades.ButtonChangeColor;
+
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.intellijthemes.FlatMaterialDesignDarkIJTheme;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import java.awt.EventQueue;
+import javax.swing.SwingUtilities;
 
 /**
  *
  * @author Llapapasca Montes
  */
 public class Index extends javax.swing.JFrame {
+
+    public static boolean isDarkTheme = true;
 
     public Index() {
         initComponents();
@@ -348,16 +356,33 @@ public class Index extends javax.swing.JFrame {
     }//GEN-LAST:event_jMICambiarTemaActionPerformed
 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        FlatMaterialDesignDarkIJTheme.setup();
-
-        //---------------------->
-        /* Create and display the form */
+        // Crear y mostrar la aplicación
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Index().setVisible(true);
+                Index index = new Index();
+                index.setVisible(true);
+                // Llamar a cambiarTema pasando la instancia 'index'
+                cambiarTema(true, index); // Usamos el valor por defecto (tema oscuro)
             }
         });
+    }
+
+    // Método para cambiar el tema global
+    public static void cambiarTema(boolean temaOscuro, Index index) {
+        try {
+            if (temaOscuro) {
+                // Configura el tema oscuro
+                FlatMaterialDesignDarkIJTheme.setup();
+            } else {
+                // Configura el tema claro
+                UIManager.setLookAndFeel(new FlatLightLaf());
+            }
+
+            // Aplicar el cambio de tema globalmente a todos los componentes
+            SwingUtilities.updateComponentTreeUI(index); // Actualiza todos los componentes de la instancia 'index'
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

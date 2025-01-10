@@ -1,8 +1,10 @@
 package capa_presentacion.admin;
 
 import java.awt.Color;
-import javax.swing.JButton;
+import java.awt.event.ActionEvent;
+import javax.swing.SwingUtilities;
 import utilidades.ColorsApp;
+
 /**
  *
  * @author Llapapasca Montes
@@ -16,12 +18,40 @@ public class ModalCambiarTema extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setTitle("Cambiar Tema");
-        activeButtonTheme(btnDarkTheme);
+        
+       // Actualizar el color del botón basado en el tema activo actual
+        actualizarBotonActivo();
     }
 
-    public void activeButtonTheme(JButton boton) {
-        boton.setBackground(ColorsApp.getCOLOR_PRIMARY());
-        boton.setForeground(Color.WHITE);
+    // Método para cambiar al tema oscuro
+    public void cambiarTemaOscuro() {
+        // Cambia el tema globalmente
+        Index.isDarkTheme = true;  // Establecer el estado del tema a oscuro
+        // Obtener la instancia de Index y cambiar el tema
+        Index index = (Index) SwingUtilities.getWindowAncestor(this);
+        Index.cambiarTema(true, index);
+        actualizarBotonActivo();
+    }
+
+    // Método para cambiar al tema claro
+    public void cambiarTemaClaro() {
+        // Cambia el tema globalmente
+        Index.isDarkTheme = false;  // Establecer el estado del tema a claro
+        // Obtener la instancia de Index y cambiar el tema
+        Index index = (Index) SwingUtilities.getWindowAncestor(this);
+        Index.cambiarTema(false, index);
+        actualizarBotonActivo();
+    }
+
+    // Método para actualizar el estado de los botones (poner en verde el botón activo)
+    private void actualizarBotonActivo() {
+        if (Index.isDarkTheme) {
+            btnDarkTheme.setBackground(ColorsApp.getCOLOR_PRIMARY());
+            btnLigthTheme.setBackground(null);
+        } else {
+            btnLigthTheme.setBackground(ColorsApp.getCOLOR_PRIMARY());
+            btnDarkTheme.setBackground(null);
+        }
     }
 
     /**
@@ -43,9 +73,19 @@ public class ModalCambiarTema extends javax.swing.JDialog {
         jPanel1.setLayout(new java.awt.GridLayout(1, 1, 10, 10));
 
         btnLigthTheme.setText("Tema Claro");
+        btnLigthTheme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLigthThemeActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnLigthTheme);
 
         btnDarkTheme.setText("Tema Oscuro");
+        btnDarkTheme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDarkThemeActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnDarkTheme);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -74,6 +114,14 @@ public class ModalCambiarTema extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLigthThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLigthThemeActionPerformed
+        cambiarTemaClaro();
+    }//GEN-LAST:event_btnLigthThemeActionPerformed
+
+    private void btnDarkThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarkThemeActionPerformed
+        cambiarTemaOscuro();
+    }//GEN-LAST:event_btnDarkThemeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
