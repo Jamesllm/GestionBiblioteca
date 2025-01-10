@@ -1,5 +1,8 @@
 package capa_presentacion.admin;
 
+import java.awt.Color;
+import javax.swing.JButton;
+import utilidades.ColorsApp;
 /**
  *
  * @author Llapapasca Montes
@@ -13,6 +16,12 @@ public class ModalCambiarTema extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setTitle("Cambiar Tema");
+        activeButtonTheme(btnDarkTheme);
+    }
+
+    public void activeButtonTheme(JButton boton) {
+        boton.setBackground(ColorsApp.getCOLOR_PRIMARY());
+        boton.setForeground(Color.WHITE);
     }
 
     /**
@@ -25,19 +34,19 @@ public class ModalCambiarTema extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnLigthTheme = new javax.swing.JButton();
+        btnDarkTheme = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setLayout(new java.awt.GridLayout(1, 1, 10, 10));
 
-        jButton2.setText("Tema Claro");
-        jPanel1.add(jButton2);
+        btnLigthTheme.setText("Tema Claro");
+        jPanel1.add(btnLigthTheme);
 
-        jButton1.setText("Tema Oscuro");
-        jPanel1.add(jButton1);
+        btnDarkTheme.setText("Tema Oscuro");
+        jPanel1.add(btnDarkTheme);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Seleccione un tema a usar en la aplicacion: ");
@@ -68,8 +77,8 @@ public class ModalCambiarTema extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnDarkTheme;
+    private javax.swing.JButton btnLigthTheme;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
