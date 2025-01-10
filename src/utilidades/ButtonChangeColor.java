@@ -22,9 +22,9 @@ public class ButtonChangeColor {
     public static void actualizarColoresBotones(JButton botonActivo, JButton... botones) {
         for (JButton boton : botones) {
             if (boton.equals(botonActivo)) {
-                cambiarColorBoton(boton, Color.BLACK, Color.RED); // Botón activo
+                cambiarColorBoton(boton, Color.BLACK, Color.WHITE); // Botón activo
             } else {
-                cambiarColorBoton(boton, Color.WHITE, Color.RED); // Otros botones
+                cambiarColorBoton(boton, Color.WHITE, Color.BLACK); // Otros botones
             }
         }
     }
