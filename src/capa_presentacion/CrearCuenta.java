@@ -4,6 +4,7 @@
  */
 package capa_presentacion;
 
+import java.awt.Color;
 import utilidades.Customizable;
 import utilidades.ImagenController;
 
@@ -20,7 +21,7 @@ public class CrearCuenta extends javax.swing.JFrame {
      */
     public CrearCuenta() {
         initComponents();
-        personalizado.cambiarColor(Username);
+        personalizado.cambiarColor(username);
         personalizado.cambiarColor(password);
         personalizado.cambiarColor(email);
         ImagenController.setImageLabel(image, "src/imagenes/lg.png");
@@ -31,12 +32,6 @@ public class CrearCuenta extends javax.swing.JFrame {
     {
         personalizado.StyleButton(SignIn);
     }
-    
-    
-    
-
-   
-    
     
 
     /**
@@ -51,7 +46,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         backround = new javax.swing.JPanel();
         welcome = new javax.swing.JPanel();
         Login = new javax.swing.JLabel();
-        Username = new javax.swing.JTextField();
+        username = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
         labelUsername = new javax.swing.JLabel();
         labelPassword = new javax.swing.JLabel();
@@ -79,17 +74,17 @@ public class CrearCuenta extends javax.swing.JFrame {
         Login.setText("Iniciar Sesion");
         Login.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        Username.setBackground(new java.awt.Color(150, 194, 219));
-        Username.setForeground(new java.awt.Color(102, 102, 102));
-        Username.setText("Ingrese su usuario");
-        Username.setActionCommand("<Not Set>");
-        Username.setBorder(null);
-        Username.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        Username.setInheritsPopupMenu(true);
-        Username.setSelectedTextColor(new java.awt.Color(51, 51, 51));
-        Username.addMouseListener(new java.awt.event.MouseAdapter() {
+        username.setBackground(new java.awt.Color(150, 194, 219));
+        username.setForeground(new java.awt.Color(102, 102, 102));
+        username.setText("Ingrese su usuario");
+        username.setActionCommand("<Not Set>");
+        username.setBorder(null);
+        username.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        username.setInheritsPopupMenu(true);
+        username.setSelectedTextColor(new java.awt.Color(51, 51, 51));
+        username.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                UsernameMousePressed(evt);
+                usernameMousePressed(evt);
             }
         });
 
@@ -100,6 +95,11 @@ public class CrearCuenta extends javax.swing.JFrame {
         password.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         password.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         password.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        password.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                passwordMousePressed(evt);
+            }
+        });
 
         labelUsername.setForeground(new java.awt.Color(51, 51, 51));
         labelUsername.setText("Email");
@@ -122,6 +122,11 @@ public class CrearCuenta extends javax.swing.JFrame {
         email.setForeground(new java.awt.Color(102, 102, 102));
         email.setText("example@gmail.com");
         email.setBorder(null);
+        email.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                emailMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout welcomeLayout = new javax.swing.GroupLayout(welcome);
         welcome.setLayout(welcomeLayout);
@@ -138,7 +143,7 @@ public class CrearCuenta extends javax.swing.JFrame {
                     .addComponent(labelPassword)
                     .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelUsername)
-                    .addComponent(Username, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(50, Short.MAX_VALUE))
@@ -151,7 +156,7 @@ public class CrearCuenta extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addComponent(labelUsername1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Username, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
@@ -206,9 +211,70 @@ public class CrearCuenta extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void UsernameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsernameMousePressed
+    private void usernameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UsernameMousePressed
+        if(username.getText().equals("Ingrese su usuario"))
+        {
+            username.setText("");
+            username.setForeground(Color.black);
+        }
+         if(email.getText().isEmpty())
+        {
+            email.setText("example@gmail.com");
+            email.setForeground(Color.gray);
+        }
+         if(String.valueOf(password.getPassword()).isEmpty())
+         {
+             password.setText("********");
+             password.setForeground(Color.gray);
+         }
+        
+        
+        
+    }//GEN-LAST:event_usernameMousePressed
+
+    private void emailMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailMousePressed
+        // TODO add your handling code here:
+        if(email.getText().equals("example@gmail.com"))
+        {
+            email.setText("");
+            email.setForeground(Color.black);
+        }
+         if(username.getText().isEmpty())
+        {
+            username.setText("Ingrese su usuario");
+            username.setForeground(Color.gray);
+        }
+         
+         if(String.valueOf(password.getPassword()).isEmpty())
+         {
+             password.setText("********");
+             password.setForeground(Color.gray);
+         }
+        
+    }//GEN-LAST:event_emailMousePressed
+
+    private void passwordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMousePressed
+        // TODO add your handling code here:
+        if(String.valueOf(password.getPassword()).equals("********"))
+        {
+            password.setText("");
+            password.setForeground(Color.black);
+        }
+         if(email.getText().isEmpty())
+        {
+            email.setText("example@gmail.com");
+            email.setForeground(Color.gray);
+        }
+         else if(username.getText().isEmpty())
+         {
+             username.setText("Ingrese su usuario");
+             username.setForeground(Color.gray);
+         }
+        
+        
+        
+    }//GEN-LAST:event_passwordMousePressed
 
     /**
      * @param args the command line arguments
@@ -220,7 +286,6 @@ public class CrearCuenta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Login;
     private javax.swing.JButton SignIn;
-    private javax.swing.JTextField Username;
     private javax.swing.JPanel backround;
     private javax.swing.JTextField email;
     private javax.swing.JLabel image;
@@ -232,6 +297,7 @@ public class CrearCuenta extends javax.swing.JFrame {
     private javax.swing.JLabel labelUsername1;
     private javax.swing.JPanel notUse;
     private javax.swing.JPasswordField password;
+    private javax.swing.JTextField username;
     private javax.swing.JPanel welcome;
     // End of variables declaration//GEN-END:variables
 }
