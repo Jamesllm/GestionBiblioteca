@@ -123,11 +123,6 @@ public class IniciarSesion extends javax.swing.JFrame {
         createAccount.setText("Create Account");
         createAccount.setBorderPainted(false);
         createAccount.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        createAccount.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                createAccountMousePressed(evt);
-            }
-        });
         createAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createAccountActionPerformed(evt);
@@ -242,22 +237,10 @@ public class IniciarSesion extends javax.swing.JFrame {
 
     private void createAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountActionPerformed
         // TODO add your handling code here:
+        CrearCuenta btnSignIn = new CrearCuenta();
+        btnSignIn.setVisible(true);
+        super.dispose();
     }//GEN-LAST:event_createAccountActionPerformed
-
-    private void createAccountMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAccountMousePressed
-        // TODO add your handling code here:
-        
-        if(createAccount.isFocusPainted() == true)
-        {
-            CrearCuenta nuevaCuenta = new CrearCuenta();
-            nuevaCuenta.setVisible(true);
-            // cierra la ventana
-            super.dispose();
-        }
-        
-        
-      
-    }//GEN-LAST:event_createAccountMousePressed
 
     /**
      * @param args the command line arguments

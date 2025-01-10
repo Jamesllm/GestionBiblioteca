@@ -20,7 +20,6 @@ public class Aplicacion {
     public static void main(String[] args) {
         /* Interfaz grafica Iniciar Sesion*/
         Customizable borde = new Customizable();
-        
         FlatMaterialDesignDarkIJTheme.setup();
         borde.FocusWidth();
         IniciarSesion is = new IniciarSesion();
