@@ -52,9 +52,8 @@ public class Index extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMICambiarTema = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        Configurar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -258,6 +257,16 @@ public class Index extends javax.swing.JFrame {
 
         jMenu1.setText("Sistema");
 
+        jMICambiarTema.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMICambiarTema.setText("Cambiar Tema");
+        jMICambiarTema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMICambiarTemaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMICambiarTema);
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem1.setText("Salir");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,12 +274,6 @@ public class Index extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("Cambiar Tema");
-        jMenu1.add(jMenuItem2);
-
-        Configurar.setText("Configurar");
-        jMenu1.add(Configurar);
 
         jMenuBar1.add(jMenu1);
 
@@ -294,7 +297,8 @@ public class Index extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+        System.out.println("salir");
+        this.dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
@@ -337,6 +341,10 @@ public class Index extends javax.swing.JFrame {
         );
     }//GEN-LAST:event_btnDevolucionesActionPerformed
 
+    private void jMICambiarTemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICambiarTemaActionPerformed
+        System.out.println("Cambiar tema");
+    }//GEN-LAST:event_jMICambiarTemaActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         FlatMaterialDesignDarkIJTheme.setup();
@@ -351,7 +359,6 @@ public class Index extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem Configurar;
     private javax.swing.JTabbedPane JTabAdmin;
     private javax.swing.JButton btnDevoluciones;
     private javax.swing.JButton btnInicio;
@@ -363,11 +370,11 @@ public class Index extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JMenuItem jMICambiarTema;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
