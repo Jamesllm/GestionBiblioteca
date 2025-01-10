@@ -342,6 +342,9 @@ public class Index extends javax.swing.JFrame {
 
     private void jMICambiarTemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICambiarTemaActionPerformed
         System.out.println("Cambiar tema");
+        ModalCambiarTema modalTema = new ModalCambiarTema(this, false);
+        modalTema.setLocationRelativeTo(this);
+        modalTema.setVisible(true);
     }//GEN-LAST:event_jMICambiarTemaActionPerformed
 
     public static void main(String args[]) {
