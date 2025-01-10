@@ -4,6 +4,7 @@
  */
 package capa_presentacion;
 
+import java.awt.Button;
 import java.awt.Color;
 import utilidades.Customizable;
 import utilidades.ImagenController;
@@ -30,6 +31,7 @@ public class CrearCuenta extends javax.swing.JFrame {
     
     private void AplicarStyle()
     {
+        personalizado.StyleButton(Back);
         personalizado.StyleButton(SignIn);
     }
     
@@ -52,10 +54,11 @@ public class CrearCuenta extends javax.swing.JFrame {
         labelPassword = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        SignIn = new javax.swing.JButton();
+        Back = new javax.swing.JButton();
         labelUsername1 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         email = new javax.swing.JTextField();
+        SignIn = new javax.swing.JButton();
         image = new javax.swing.JLabel();
         notUse = new javax.swing.JPanel();
 
@@ -107,13 +110,18 @@ public class CrearCuenta extends javax.swing.JFrame {
         labelPassword.setForeground(new java.awt.Color(51, 51, 51));
         labelPassword.setText("Contraseña");
 
-        SignIn.setBackground(new java.awt.Color(132, 185, 215));
-        SignIn.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        SignIn.setForeground(new java.awt.Color(51, 51, 51));
-        SignIn.setText("Sign In");
-        SignIn.setBorderPainted(false);
-        SignIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        SignIn.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        Back.setBackground(new java.awt.Color(93, 109, 126));
+        Back.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        Back.setForeground(new java.awt.Color(51, 51, 51));
+        Back.setText("Back");
+        Back.setBorderPainted(false);
+        Back.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Back.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        Back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackActionPerformed(evt);
+            }
+        });
 
         labelUsername1.setForeground(new java.awt.Color(51, 51, 51));
         labelUsername1.setText("Usuario");
@@ -128,24 +136,38 @@ public class CrearCuenta extends javax.swing.JFrame {
             }
         });
 
+        SignIn.setBackground(new java.awt.Color(132, 185, 215));
+        SignIn.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        SignIn.setForeground(new java.awt.Color(51, 51, 51));
+        SignIn.setText("Sign In");
+        SignIn.setBorderPainted(false);
+        SignIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SignIn.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+
         javax.swing.GroupLayout welcomeLayout = new javax.swing.GroupLayout(welcome);
         welcome.setLayout(welcomeLayout);
         welcomeLayout.setHorizontalGroup(
             welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Login, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(welcomeLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
                 .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelUsername1)
-                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelPassword)
-                    .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelUsername)
-                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(welcomeLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelUsername1)
+                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelPassword)
+                            .addComponent(labelUsername)
+                            .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(welcomeLayout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(77, 77, 77)
+                        .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         welcomeLayout.setVerticalGroup(
@@ -165,15 +187,17 @@ public class CrearCuenta extends javax.swing.JFrame {
                 .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addGap(18, 18, 18)
                 .addComponent(labelPassword)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addGap(52, 52, 52)
+                .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         backround.add(welcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 420, 580));
@@ -271,11 +295,15 @@ public class CrearCuenta extends javax.swing.JFrame {
              username.setText("Ingrese su usuario");
              username.setForeground(Color.gray);
          }
-        
-        
-        
     }//GEN-LAST:event_passwordMousePressed
 
+    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+        // TODO add your handling code here:
+        IniciarSesion btnBack = new IniciarSesion();
+        btnBack.setVisible(true);
+        super.dispose();
+    }//GEN-LAST:event_BackActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -284,6 +312,7 @@ public class CrearCuenta extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Back;
     private javax.swing.JLabel Login;
     private javax.swing.JButton SignIn;
     private javax.swing.JPanel backround;
