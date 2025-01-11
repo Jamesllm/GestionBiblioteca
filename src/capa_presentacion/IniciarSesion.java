@@ -74,7 +74,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         Login.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         Login.setForeground(new java.awt.Color(51, 51, 51));
         Login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Login.setText("Iniciar Sesion");
+        Login.setText("Sign In");
         Login.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Username.setBackground(new java.awt.Color(150, 194, 219));
@@ -139,17 +139,17 @@ public class IniciarSesion extends javax.swing.JFrame {
                 .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelPassword)
                     .addComponent(labelUsername)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(welcomeLayout.createSequentialGroup()
                             .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(76, 76, 76)
                             .addComponent(createAccount))
                         .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(password)
-                            .addComponent(Username, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE))))
-                .addContainerGap(96, Short.MAX_VALUE))
+                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Username))))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         welcomeLayout.setVerticalGroup(
             welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,17 +210,12 @@ public class IniciarSesion extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void UsernameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsernameMousePressed
+    private void createAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountActionPerformed
         // TODO add your handling code here:
-        if (Username.getText().equals("Ingrese su usuario")) {
-            Username.setText("");
-            Username.setForeground(Color.black);
-        }
-        if (String.valueOf(password.getPassword()).isEmpty()) {
-            password.setText("********");
-            password.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_UsernameMousePressed
+        CrearCuenta btnCreate = new CrearCuenta();
+        btnCreate.setVisible(true);
+        super.dispose();
+    }//GEN-LAST:event_createAccountActionPerformed
 
     private void passwordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMousePressed
         // TODO add your handling code here:
@@ -232,15 +227,19 @@ public class IniciarSesion extends javax.swing.JFrame {
             Username.setText("Ingrese su usuario");
             Username.setForeground(Color.gray);
         }
-
     }//GEN-LAST:event_passwordMousePressed
 
-    private void createAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountActionPerformed
+    private void UsernameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsernameMousePressed
         // TODO add your handling code here:
-        CrearCuenta btnSignIn = new CrearCuenta();
-        btnSignIn.setVisible(true);
-        super.dispose();
-    }//GEN-LAST:event_createAccountActionPerformed
+        if (Username.getText().equals("Ingrese su usuario")) {
+            Username.setText("");
+            Username.setForeground(Color.black);
+        }
+        if (String.valueOf(password.getPassword()).isEmpty()) {
+            password.setText("********");
+            password.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_UsernameMousePressed
 
     /**
      * @param args the command line arguments

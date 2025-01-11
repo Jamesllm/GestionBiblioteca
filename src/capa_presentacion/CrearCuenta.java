@@ -31,8 +31,7 @@ public class CrearCuenta extends javax.swing.JFrame {
     
     private void AplicarStyle()
     {
-        personalizado.StyleButton(Back);
-        personalizado.StyleButton(SignIn);
+        personalizado.StyleButton(btnContinue);
     }
     
 
@@ -54,11 +53,10 @@ public class CrearCuenta extends javax.swing.JFrame {
         labelPassword = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        Back = new javax.swing.JButton();
         labelUsername1 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         email = new javax.swing.JTextField();
-        SignIn = new javax.swing.JButton();
+        btnContinue = new javax.swing.JButton();
         image = new javax.swing.JLabel();
         notUse = new javax.swing.JPanel();
 
@@ -74,7 +72,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         Login.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         Login.setForeground(new java.awt.Color(51, 51, 51));
         Login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Login.setText("Iniciar Sesion");
+        Login.setText("Create Account");
         Login.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         username.setBackground(new java.awt.Color(150, 194, 219));
@@ -110,19 +108,6 @@ public class CrearCuenta extends javax.swing.JFrame {
         labelPassword.setForeground(new java.awt.Color(51, 51, 51));
         labelPassword.setText("Contraseña");
 
-        Back.setBackground(new java.awt.Color(93, 109, 126));
-        Back.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        Back.setForeground(new java.awt.Color(51, 51, 51));
-        Back.setText("Back");
-        Back.setBorderPainted(false);
-        Back.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Back.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
-        Back.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackActionPerformed(evt);
-            }
-        });
-
         labelUsername1.setForeground(new java.awt.Color(51, 51, 51));
         labelUsername1.setText("Usuario");
 
@@ -136,39 +121,54 @@ public class CrearCuenta extends javax.swing.JFrame {
             }
         });
 
-        SignIn.setBackground(new java.awt.Color(132, 185, 215));
-        SignIn.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        SignIn.setForeground(new java.awt.Color(51, 51, 51));
-        SignIn.setText("Sign In");
-        SignIn.setBorderPainted(false);
-        SignIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        SignIn.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        btnContinue.setBackground(new java.awt.Color(93, 109, 126));
+        btnContinue.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        btnContinue.setForeground(new java.awt.Color(51, 51, 51));
+        btnContinue.setText("Continue");
+        btnContinue.setBorderPainted(false);
+        btnContinue.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnContinue.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        btnContinue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContinueActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout welcomeLayout = new javax.swing.GroupLayout(welcome);
         welcome.setLayout(welcomeLayout);
         welcomeLayout.setHorizontalGroup(
             welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Login, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(welcomeLayout.createSequentialGroup()
-                .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(welcomeLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelUsername1)
-                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelPassword)
-                            .addComponent(labelUsername)
-                            .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(welcomeLayout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(77, 77, 77)
-                        .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(labelUsername1))
+            .addGroup(welcomeLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(welcomeLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(welcomeLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(labelUsername))
+            .addGroup(welcomeLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(welcomeLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(welcomeLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(labelPassword))
+            .addGroup(welcomeLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(welcomeLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(welcomeLayout.createSequentialGroup()
+                .addGap(138, 138, 138)
+                .addComponent(btnContinue, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         welcomeLayout.setVerticalGroup(
             welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,27 +177,25 @@ public class CrearCuenta extends javax.swing.JFrame {
                 .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addComponent(labelUsername1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addComponent(labelUsername)
                 .addGap(18, 18, 18)
                 .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(labelPassword)
                 .addGap(18, 18, 18)
                 .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addGap(46, 46, 46)
+                .addComponent(btnContinue, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         backround.add(welcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 420, 580));
@@ -297,12 +295,13 @@ public class CrearCuenta extends javax.swing.JFrame {
          }
     }//GEN-LAST:event_passwordMousePressed
 
-    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+    private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed
         // TODO add your handling code here:
-        IniciarSesion btnBack = new IniciarSesion();
-        btnBack.setVisible(true);
+        IniciarSesion btnNuevoInicio = new IniciarSesion();
+        btnNuevoInicio.setVisible(true);
         super.dispose();
-    }//GEN-LAST:event_BackActionPerformed
+        
+    }//GEN-LAST:event_btnContinueActionPerformed
     
     /**
      * @param args the command line arguments
@@ -312,10 +311,9 @@ public class CrearCuenta extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Back;
     private javax.swing.JLabel Login;
-    private javax.swing.JButton SignIn;
     private javax.swing.JPanel backround;
+    private javax.swing.JButton btnContinue;
     private javax.swing.JTextField email;
     private javax.swing.JLabel image;
     private javax.swing.JSeparator jSeparator1;

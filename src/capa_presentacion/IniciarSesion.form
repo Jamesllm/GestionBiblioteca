@@ -66,8 +66,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="labelPassword" min="-2" max="-2" attributes="0"/>
                           <Component id="labelUsername" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSeparator1" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
-                          <Component id="jSeparator2" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
+                          <Component id="jSeparator1" alignment="0" min="-2" pref="290" max="-2" attributes="0"/>
+                          <Component id="jSeparator2" alignment="0" min="-2" pref="290" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="SignIn" min="-2" pref="92" max="-2" attributes="0"/>
@@ -75,12 +75,12 @@
                                   <Component id="createAccount" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="password" max="32767" attributes="0"/>
-                                  <Component id="Username" pref="280" max="32767" attributes="0"/>
+                                  <Component id="password" min="-2" pref="300" max="-2" attributes="0"/>
+                                  <Component id="Username" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="96" max="32767" attributes="0"/>
+                      <EmptySpace pref="80" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -124,7 +124,7 @@
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Iniciar Sesion"/>
+                <Property name="text" type="java.lang.String" value="Sign In"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
               </Properties>
             </Component>
