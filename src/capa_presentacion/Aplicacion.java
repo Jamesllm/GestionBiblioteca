@@ -1,7 +1,7 @@
 package capa_presentacion;
 
-import utilidades.Customizable;
 import capa_datos.clsConexion;
+import utilidades.Customizable;
 import com.formdev.flatlaf.intellijthemes.FlatMaterialDesignDarkIJTheme;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -25,34 +25,20 @@ public class Aplicacion {
         IniciarSesion is = new IniciarSesion();
         is.setVisible(true);
         
-         //elimina los bordes sobresalientes y hace los bordes redondeados 
-        
-        /* Clases importantes para la interfaz de usuario*/
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        /*
-        
-        
-        
-        
-        
-        clsConexion conexionBD = clsConexion.getInstancia();
+         clsConexion conexionBD = clsConexion.getInstancia();
         try {
-            conexion = conexionBD.getConexion();
+            conexion = conexionBD.conectar();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-*/
+        
+        
+       
+        
+        
+        
+        
+
 
     }
 

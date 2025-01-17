@@ -20,7 +20,7 @@ public class datosUsuarios {
         conexionBD = clsConexion.getInstancia();
 
         try {
-            conexion = conexionBD.getConexion();
+            conexion = conexionBD.conectar();
         } catch (SQLException e) {
             e.printStackTrace();
         }

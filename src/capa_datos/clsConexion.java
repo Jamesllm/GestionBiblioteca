@@ -3,7 +3,6 @@ package capa_datos;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import org.sqlite.JDBC;
 
 /**
  *
@@ -27,13 +26,13 @@ public class clsConexion {
     }
 
     // Método para obtener la conexión a la base de datos
-    public Connection getConexion() throws SQLException {
+    public Connection conectar() throws SQLException {
         if (conexion == null || conexion.isClosed()) {
-            String conexionUrl = "jdbc:sqlite:biblioteca.db";
+            String conexionUrl = "jdbc:sqlite:BibliotecaTest.db";
             try {
                 Class.forName("org.sqlite.JDBC");
                 conexion = DriverManager.getConnection(conexionUrl);
-                System.out.println("Conexión a SQLite establecida.");
+                System.out.println("Conexion a SQLite establecida.");
                 
             } catch (ClassNotFoundException ce) {
                 ce.printStackTrace();
@@ -49,7 +48,7 @@ public class clsConexion {
         if (conexion != null) {
             try {
                 conexion.close();
-                System.out.println("Conexión a la base de datos cerrada correctamente.");
+                System.out.println("Conexion a la base de datos cerrada correctamente.");
             } catch (SQLException e) {
                 System.out.println("Error al cerrar la conexión: " + e.getMessage());
             }

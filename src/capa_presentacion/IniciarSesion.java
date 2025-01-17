@@ -6,8 +6,6 @@ package capa_presentacion;
 
 import utilidades.Customizable;
 import java.awt.Color;
-import javax.swing.JButton;
-import javax.swing.text.JTextComponent;
 import utilidades.ImagenController;
 
 /**
@@ -24,8 +22,8 @@ public class IniciarSesion extends javax.swing.JFrame {
     
     public IniciarSesion() {
         initComponents();
-        personalizado.cambiarColor(Username);
-        personalizado.cambiarColor(password);
+        personalizado.cambiarColorCursorText(Username);
+        personalizado.cambiarColorCursorText(password);
         ImagenController.setImageLabel(image, "src/imagenes/lg.png");
         AplicarStyle();
     }
