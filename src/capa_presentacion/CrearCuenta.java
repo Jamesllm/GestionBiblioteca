@@ -332,13 +332,12 @@ public class CrearCuenta extends javax.swing.JFrame {
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         try {
         Connection conexion = conectar.conectar();
-        String sqlConsulta = "INSERT INTO insertUser(userName, email, password) VALUES (?,?,?)";
+        String sqlConsulta = "INSERT INTO user(username, password) VALUES (?,?)";
         PreparedStatement insertTextField = conexion.prepareStatement(sqlConsulta, PreparedStatement.RETURN_GENERATED_KEYS);
         
         insertTextField.setString(1, username.getText().trim());
-        insertTextField.setString(2, email.getText().trim());
-        insertTextField.setString(3, String.valueOf(password.getPassword()));
-        insertTextField.execute();
+        insertTextField.setString(2, String.valueOf(password.getPassword()));
+        insertTextField.executeUpdate();
         
         JOptionPane.showMessageDialog(null, "datos registrados correctamente");
         conectar.cerrarConexion();

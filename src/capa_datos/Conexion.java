@@ -28,21 +28,17 @@ public class Conexion {
     // Método para obtener la conexión a la base de datos
     public Connection conectar() throws SQLException {
         if (conexion == null || conexion.isClosed()) {
-            String conexionUrl = "jdbc:sqlserver://localhost:1433;"
-                        + "database=loginUser;"
-                        + "user=sa;"
-                        + "password=admin;"
-                        + "encrypt=true;"
-                        + "trustServerCertificate=true;"
-                        + "loginTimeout=30;";
-             try {
+            String conexionUrl = "jdbc:sqlite:testSQL.db";
+            try {
+                Class.forName("org.sqlite.JDBC");
                 conexion = DriverManager.getConnection(conexionUrl);
-                System.out.println("Conexion exitosa a la base de datos");
-            } catch (SQLException ex) {
-                System.out.println("Error en la conexion: " + ex.getMessage());
-                throw ex;
+                System.out.println("Conexion a SQLite establecida.");
+                
+            } catch (ClassNotFoundException ce) {
+                ce.printStackTrace();
+            } catch (SQLException sqle) {
+                sqle.printStackTrace();
             }
-            
         }
         return conexion;
     }
