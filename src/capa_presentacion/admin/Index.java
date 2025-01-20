@@ -6,7 +6,6 @@ import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.intellijthemes.FlatMaterialDesignDarkIJTheme;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import java.awt.EventQueue;
 import javax.swing.SwingUtilities;
 
 /**
@@ -282,7 +281,7 @@ public class Index extends javax.swing.JFrame {
                 .addComponent(txtBienvenida)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 331, Short.MAX_VALUE))
+                .addGap(0, 358, Short.MAX_VALUE))
         );
 
         JTabAdmin.addTab("tab1", jPanel4);
@@ -322,7 +321,7 @@ public class Index extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel3)
-                .addContainerGap(446, Short.MAX_VALUE))
+                .addContainerGap(473, Short.MAX_VALUE))
         );
 
         JTabAdmin.addTab("tab3", jPanel6);
@@ -343,7 +342,7 @@ public class Index extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addContainerGap(451, Short.MAX_VALUE))
+                .addContainerGap(478, Short.MAX_VALUE))
         );
 
         JTabAdmin.addTab("tab4", jPanel7);
@@ -364,7 +363,7 @@ public class Index extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jLabel5)
-                .addContainerGap(453, Short.MAX_VALUE))
+                .addContainerGap(480, Short.MAX_VALUE))
         );
 
         JTabAdmin.addTab("tab5", jPanel8);

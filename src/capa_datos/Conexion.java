@@ -28,7 +28,7 @@ public class Conexion {
     // Método para obtener la conexión a la base de datos
     public Connection conectar() throws SQLException {
         if (conexion == null || conexion.isClosed()) {
-            String conexionUrl = "jdbc:sqlite:testSQL.db";
+            String conexionUrl = "jdbc:sqlite:Biblioteca.db";
             try {
                 Class.forName("org.sqlite.JDBC");
                 conexion = DriverManager.getConnection(conexionUrl);
@@ -48,7 +48,7 @@ public class Conexion {
         if (conexion != null) {
             try {
                 conexion.close();
-                System.out.println("Conexion a la base de datos cerrada correctamente.");
+                System.out.println("Conexion SQLite cerrado.");
             } catch (SQLException e) {
                 System.out.println("Error al cerrar la conexión: " + e.getMessage());
             }

@@ -236,6 +236,10 @@
                 </Property>
                 <Property name="debugGraphicsOptions" type="int" value="-1"/>
               </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="SignInMousePressed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SignInActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="createAccount">
               <Properties>

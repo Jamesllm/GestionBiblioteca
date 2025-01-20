@@ -4,9 +4,6 @@ import Clases.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.ResultSet;
-import java.time.LocalDate;
-
 /**
  *
  * @author Llapapasca Montes
@@ -28,16 +25,15 @@ public class datosUsuarios {
 
     // Para el registro de usuario
     public boolean insertarUsuario(Usuario usuario) {
-        String sqlPersona = "INSERT INTO user (name, surnames, dni, email, userName, password) VALUES (?, ?, ?, ?, ?, ?)";
+        String sqlPersona = "INSERT INTO user (nameLastName, dni, email, userName, password) VALUES (?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement stmtUsuario = conexion.prepareStatement(sqlPersona, PreparedStatement.RETURN_GENERATED_KEYS);
 
-            stmtUsuario.setString(1, usuario.getNombre());
-            stmtUsuario.setString(2, usuario.getApellidos());
-            stmtUsuario.setString(3, usuario.getDni());
-            stmtUsuario.setString(4, usuario.getEmail());
-            stmtUsuario.setString(5, usuario.getUserName());
+            stmtUsuario.setString(1, usuario.getNombreApellido());
+            stmtUsuario.setString(2, usuario.getDni());
+            stmtUsuario.setString(3, usuario.getEmail());
+            stmtUsuario.setString(4, usuario.getUserName());
             stmtUsuario.setString(5, usuario.getPassword());
 
             int filasInsertadas = stmtUsuario.executeUpdate();

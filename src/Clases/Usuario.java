@@ -6,15 +6,14 @@ package Clases;
  */
 public class Usuario {
    
-    private String codigo, nombre, apellidos, dni, email;
+    private String codigo, nombreApellido, dni, email;
     private String userName, password;
     private boolean estado;
     private int rol;
 
-    public Usuario(String codigo, String nombre, String apellidos, String dni, String email, String userName, String password, boolean estado, int rol) {
+    public Usuario(String codigo, String nombreApellido, String apellidos, String dni, String email, String userName, String password, boolean estado, int rol) {
         this.codigo = codigo;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
+        this.nombreApellido = nombreApellido;
         this.dni = dni;
         this.email = email;
         this.userName = userName;
@@ -27,13 +26,11 @@ public class Usuario {
         return codigo;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreApellido() {
+        return nombreApellido;
     }
 
-    public String getApellidos() {
-        return apellidos;
-    }
+  
 
     public String getDni() {
         return dni;
@@ -63,13 +60,11 @@ public class Usuario {
         this.codigo = codigo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String nombreApellido) {
+        this.nombreApellido = nombreApellido;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
+   
 
     public void setDni(String dni) {
         this.dni = dni;
@@ -97,10 +92,9 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Codigo: " + codigo
-                + "nombre: " + nombre
-                + "Apellido: " + apellidos
-                + "DNI: " + dni;
+        return  "Codigo: " + codigo
+              + "Nombre Completo: " + nombreApellido
+               + "DNI: " + dni;
 
     }
 }

@@ -10,13 +10,14 @@ import javax.swing.JOptionPane;
 import utilidades.Customizable;
 import utilidades.ImagenController;
 import java.sql.*;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Alex
  */
 public class CrearCuenta extends javax.swing.JFrame {
-    Conexion conectar = Conexion.getInstancia();
+    Conexion conexionBD = Conexion.getInstancia();
     Customizable personalizado = new Customizable();
 
 
@@ -37,6 +38,10 @@ public class CrearCuenta extends javax.swing.JFrame {
     {
         personalizado.StyleButton(btnContinue);
         personalizado.StyleButton(btnRegistrar);
+    }
+    private void limpiarTextField (JTextField textField)
+    {
+        textField.setText("");
     }
     
 
@@ -144,6 +149,11 @@ public class CrearCuenta extends javax.swing.JFrame {
         btnRegistrar.setText("Registrar");
         btnRegistrar.setBorderPainted(false);
         btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnRegistrarMousePressed(evt);
+            }
+        });
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
@@ -331,20 +341,45 @@ public class CrearCuenta extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         try {
-        Connection conexion = conectar.conectar();
-        String sqlConsulta = "INSERT INTO user(username, password) VALUES (?,?)";
-        PreparedStatement insertTextField = conexion.prepareStatement(sqlConsulta, PreparedStatement.RETURN_GENERATED_KEYS);
+        Connection connect = conexionBD.conectar();
+        String sqlConsulta = "INSERT INTO user(username, email, password) VALUES (?,?, ?)";
+        PreparedStatement insertTextField = connect.prepareStatement(sqlConsulta, PreparedStatement.RETURN_GENERATED_KEYS);
         
         insertTextField.setString(1, username.getText().trim());
-        insertTextField.setString(2, String.valueOf(password.getPassword()));
-        insertTextField.executeUpdate();
-        
-        JOptionPane.showMessageDialog(null, "datos registrados correctamente");
-        conectar.cerrarConexion();
+        insertTextField.setString(2, email.getText());
+        insertTextField.setString(3, String.valueOf(password.getPassword()));
+       int actualizoDatos = insertTextField.executeUpdate();
+        if(actualizoDatos > 0){
+        JOptionPane.showMessageDialog(null,"datos registrados correctamente");
+            limpiarTextField(username);
+            limpiarTextField(email);
+            limpiarTextField(password);
+        conexionBD.cerrarConexion();
+        }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnRegistrarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMousePressed
+        // TODO add your handling code here:
+        if(username.getText().isEmpty())
+        {
+            username.setText("Ingrese su usuario");
+            username.setForeground(Color.gray);
+        }
+        if(email.getText().isEmpty())
+        {
+            email.setText("example@gmail.com");
+            email.setForeground(Color.gray);
+        }
+        
+        else if(String.valueOf(password.getPassword()).isEmpty())
+        {
+            password.setText("********");
+            password.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_btnRegistrarMousePressed
     
     /**
      * @param args the command line arguments

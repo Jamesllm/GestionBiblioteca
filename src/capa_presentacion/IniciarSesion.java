@@ -4,8 +4,12 @@
  */
 package capa_presentacion;
 
+import capa_datos.Conexion;
+import capa_presentacion.admin.Index;
 import utilidades.Customizable;
+import java.sql.*;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import utilidades.ImagenController;
 
 /**
@@ -13,6 +17,8 @@ import utilidades.ImagenController;
  * @author Alex
  */
 public class IniciarSesion extends javax.swing.JFrame {
+    
+    Conexion conexionBD = Conexion.getInstancia();
     Customizable personalizado = new Customizable();
 
 
@@ -114,6 +120,16 @@ public class IniciarSesion extends javax.swing.JFrame {
         SignIn.setBorderPainted(false);
         SignIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SignIn.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        SignIn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                SignInMousePressed(evt);
+            }
+        });
+        SignIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SignInActionPerformed(evt);
+            }
+        });
 
         createAccount.setBackground(new java.awt.Color(93, 109, 126));
         createAccount.setForeground(new java.awt.Color(51, 51, 51));
@@ -254,6 +270,52 @@ public class IniciarSesion extends javax.swing.JFrame {
             password.setForeground(Color.gray);
         }
     }//GEN-LAST:event_UsernameMousePressed
+
+    private void SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignInActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            Connection connect = conexionBD.conectar();
+            String sqlConsulta = "SELECT username, password FROM user "
+                               + "WHERE username LIKE ? AND password = ?";
+            PreparedStatement readTextField = connect.prepareStatement(sqlConsulta, PreparedStatement.RETURN_GENERATED_KEYS);
+            readTextField.setString(1, Username.getText());
+            readTextField.setString(2, String.valueOf(password.getPassword()));
+           ResultSet result = readTextField.executeQuery();
+           if(result.next() == true)
+           {
+               
+               Username.setText("");
+               password.setText("");
+               JOptionPane.showMessageDialog(null, "Ingresando al sistema...");
+               Index ingresando = new Index();
+               ingresando.setVisible(true);
+               super.dispose();
+               
+               
+               
+           }
+           
+            
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_SignInActionPerformed
+
+    private void SignInMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignInMousePressed
+        // TODO add your handling code here:
+        if(Username.getText().isEmpty())
+        {
+            Username.setText("Ingrese su usuario");
+            Username.setForeground(Color.gray);
+        }
+        if(String.valueOf(password.getPassword()).isEmpty())
+        {
+            password.setText("********");
+            password.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_SignInMousePressed
 
     /**
      * @param args the command line arguments

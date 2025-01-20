@@ -1,8 +1,8 @@
+-- FORMATO
 -- Users Table
 CREATE TABLE user (
     code TEXT PRIMARY KEY NOT NULL DEFAULT (lower(hex(randomblob(16)))),  
-    name TEXT NOT NULL, 
-    surnames TEXT, 
+    nameLastName TEXT NOT NULL, 
     dni TEXT NOT NULL,
     email TEXT NOT NULL,
     userName TEXT, 
