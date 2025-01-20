@@ -70,7 +70,6 @@ public class CrearCuenta extends javax.swing.JFrame {
         setResizable(false);
 
         backround.setBackground(new java.awt.Color(255, 255, 255));
-        backround.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         welcome.setBackground(new java.awt.Color(150, 194, 219));
 
@@ -208,10 +207,7 @@ public class CrearCuenta extends javax.swing.JFrame {
                 .addContainerGap(67, Short.MAX_VALUE))
         );
 
-        backround.add(welcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 420, 580));
-
         image.setText("imagen");
-        backround.add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 310, 330));
 
         notUse.setBackground(new java.awt.Color(229, 237, 241));
 
@@ -226,7 +222,27 @@ public class CrearCuenta extends javax.swing.JFrame {
             .addGap(0, 580, Short.MAX_VALUE)
         );
 
-        backround.add(notUse, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 150, 580));
+        javax.swing.GroupLayout backroundLayout = new javax.swing.GroupLayout(backround);
+        backround.setLayout(backroundLayout);
+        backroundLayout.setHorizontalGroup(
+            backroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backroundLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(backroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backroundLayout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(notUse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(image, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(welcome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        backroundLayout.setVerticalGroup(
+            backroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(notUse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(backroundLayout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(image, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(welcome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
