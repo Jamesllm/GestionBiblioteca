@@ -1,6 +1,6 @@
 package capa_presentacion;
 
-import capa_datos.clsConexion;
+import capa_datos.Conexion;
 import utilidades.Customizable;
 import com.formdev.flatlaf.intellijthemes.FlatMaterialDesignDarkIJTheme;
 import java.sql.Connection;
@@ -25,7 +25,7 @@ public class Aplicacion {
         IniciarSesion is = new IniciarSesion();
         is.setVisible(true);
         
-         clsConexion conexionBD = clsConexion.getInstancia();
+         Conexion conexionBD = Conexion.getInstancia();
         try {
             conexion = conexionBD.conectar();
         } catch (SQLException e) {

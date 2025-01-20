@@ -8,19 +8,19 @@ import java.sql.SQLException;
  *
  * @author Llapapasca Montes Ronal James
  */
-public class clsConexion {
+public class Conexion {
 
-    private static clsConexion instancia;
+    private static Conexion instancia;
     private Connection conexion;
 
     // Constructor privado para evitar instancias externas
-    private clsConexion() {
+    private Conexion() {
     }
 
     // Método para obtener la instancia de la clase (patrón Singleton)
-    public static clsConexion getInstancia() {
+    public static Conexion getInstancia() {
         if (instancia == null) {
-            instancia = new clsConexion();
+            instancia = new Conexion();
         }
         return instancia;
     }
@@ -28,17 +28,21 @@ public class clsConexion {
     // Método para obtener la conexión a la base de datos
     public Connection conectar() throws SQLException {
         if (conexion == null || conexion.isClosed()) {
-            String conexionUrl = "jdbc:sqlite:BibliotecaTest.db";
-            try {
-                Class.forName("org.sqlite.JDBC");
+            String conexionUrl = "jdbc:sqlserver://localhost:1433;"
+                        + "database=loginUser;"
+                        + "user=sa;"
+                        + "password=admin;"
+                        + "encrypt=true;"
+                        + "trustServerCertificate=true;"
+                        + "loginTimeout=30;";
+             try {
                 conexion = DriverManager.getConnection(conexionUrl);
-                System.out.println("Conexion a SQLite establecida.");
-                
-            } catch (ClassNotFoundException ce) {
-                ce.printStackTrace();
-            } catch (SQLException sqle) {
-                sqle.printStackTrace();
+                System.out.println("Conexion exitosa a la base de datos");
+            } catch (SQLException ex) {
+                System.out.println("Error en la conexion: " + ex.getMessage());
+                throw ex;
             }
+            
         }
         return conexion;
     }

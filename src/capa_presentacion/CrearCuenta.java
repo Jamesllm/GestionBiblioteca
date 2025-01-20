@@ -4,7 +4,7 @@
  */
 package capa_presentacion;
 
-import capa_datos.clsConexion;
+import capa_datos.Conexion;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import utilidades.Customizable;
@@ -16,7 +16,7 @@ import java.sql.*;
  * @author Alex
  */
 public class CrearCuenta extends javax.swing.JFrame {
-    clsConexion conectar = clsConexion.getInstancia();
+    Conexion conectar = Conexion.getInstancia();
     Customizable personalizado = new Customizable();
 
 
@@ -316,7 +316,9 @@ public class CrearCuenta extends javax.swing.JFrame {
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         try {
         Connection conexion = conectar.conectar();
-        PreparedStatement insertTextField = conexion.prepareStatement("INSERT INTO login (code ,userName, email, password) VALUES (?,?,?,?)");
+        String sqlConsulta = "INSERT INTO insertUser(userName, email, password) VALUES (?,?,?)";
+        PreparedStatement insertTextField = conexion.prepareStatement(sqlConsulta, PreparedStatement.RETURN_GENERATED_KEYS);
+        
         insertTextField.setString(1, username.getText().trim());
         insertTextField.setString(2, email.getText().trim());
         insertTextField.setString(3, String.valueOf(password.getPassword()));

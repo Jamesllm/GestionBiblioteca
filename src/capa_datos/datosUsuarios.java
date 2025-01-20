@@ -13,11 +13,11 @@ import java.time.LocalDate;
  */
 public class datosUsuarios {
 
-    private clsConexion conexionBD;
+    private Conexion conexionBD;
     private Connection conexion;
 
     public datosUsuarios() {
-        conexionBD = clsConexion.getInstancia();
+        conexionBD = Conexion.getInstancia();
 
         try {
             conexion = conexionBD.conectar();
