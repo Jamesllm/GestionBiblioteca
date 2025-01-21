@@ -15,9 +15,6 @@ import javax.swing.text.JTextComponent;
  */
 public class Customizable {
     
-    
-    
-    
     // metodo para la mejora del "TextCursor"
      public void cambiarColorCursorText(JTextComponent name) {
         name.setCaretColor(new Color(52, 73, 94));

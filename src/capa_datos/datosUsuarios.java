@@ -1,18 +1,21 @@
 package capa_datos;
 
-import Clases.Usuario;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Llapapasca Montes
  */
 public class datosUsuarios {
-
+    
+    private boolean Right;
     private Conexion conexionBD;
     private Connection conexion;
 
+    public boolean isRight() {
+        return Right;
+    }
+    
     public datosUsuarios() {
         conexionBD = Conexion.getInstancia();
 
@@ -24,25 +27,50 @@ public class datosUsuarios {
     }
 
     // Para el registro de usuario
-    public boolean insertarUsuario(Usuario usuario) {
-        String sqlPersona = "INSERT INTO user (nameLastName, dni, email, userName, password) VALUES (?, ?, ?, ?, ?)";
+    public boolean insertarUsuario(String componente) {
+        String sqlInsert = "INSERT INTO user (username, email, password) VALUES (?, ?, ?)";
+         
+           try {
+            PreparedStatement stmtUsuario = conexion.prepareStatement(sqlInsert, PreparedStatement.RETURN_GENERATED_KEYS);
+            
+            stmtUsuario.setString(1, componente);
+            stmtUsuario.setString(2, componente);
+            stmtUsuario.setString(3, componente);
+            stmtUsuario.executeUpdate();
+            
+            Right = true;
+            
 
-        try {
-            PreparedStatement stmtUsuario = conexion.prepareStatement(sqlPersona, PreparedStatement.RETURN_GENERATED_KEYS);
-
-            stmtUsuario.setString(1, usuario.getNombreApellido());
-            stmtUsuario.setString(2, usuario.getDni());
-            stmtUsuario.setString(3, usuario.getEmail());
-            stmtUsuario.setString(4, usuario.getUserName());
-            stmtUsuario.setString(5, usuario.getPassword());
-
-            int filasInsertadas = stmtUsuario.executeUpdate();
-
-            return filasInsertadas > 0; // Retorna true si se inserta correctamente
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return false; // Si no se inserta, retorna false
+         
+           } catch (SQLException e) {
+           
+               JOptionPane.showMessageDialog(null, e);
+           
+             
+         
     }
-}
+           return Right = false;
+    }
+        public boolean validarSql (String componente){
+         String sqlConsulta = " SELECT username, password FROM user WHERE username LIKE ? AND password = ? ";
+         
+            try 
+            {
+                PreparedStatement readTextField = conexion.prepareStatement(sqlConsulta, PreparedStatement.RETURN_GENERATED_KEYS);
+                readTextField.setString(1, componente);
+                readTextField.setString(2, componente);
+                readTextField.executeQuery();
+                Right = true; // retorna verdadero si se logro completar los datos
+                
+            } 
+            catch (SQLException ex) 
+            {
+                 JOptionPane.showMessageDialog(null, ex);
+            }
+            return Right = false;
+             
+         }
+         
+    }
+
+

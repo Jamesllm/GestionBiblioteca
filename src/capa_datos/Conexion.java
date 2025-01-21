@@ -48,7 +48,6 @@ public class Conexion {
         if (conexion != null) {
             try {
                 conexion.close();
-                System.out.println("Conexion SQLite cerrado.");
             } catch (SQLException e) {
                 System.out.println("Error al cerrar la conexión: " + e.getMessage());
             }
