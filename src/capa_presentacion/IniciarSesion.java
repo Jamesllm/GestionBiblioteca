@@ -8,7 +8,6 @@ import capa_datos.datosUsuarios;
 import utilidades.Customizable;
 import java.awt.Color;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import utilidades.ImagenController;
 
 /**
@@ -37,11 +36,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         personalizado.StyleButton(SignIn);
         personalizado.StyleButton(createAccount);
     }
-      private static void limpiarTextField (JTextField textField)
-    {
-        textField.setText("");
-    }
-    
+  
     
 
 
@@ -271,14 +266,26 @@ public class IniciarSesion extends javax.swing.JFrame {
 
     private void SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignInActionPerformed
         // TODO add your handling code here:
-        datosUsuarios ingresar = new datosUsuarios();
-        ingresar.validarSql(Username.getText());
-        ingresar.validarSql(String.valueOf(password.getPassword()));
+        datosUsuarios consultaSql = new datosUsuarios();
+        String usernameTxt = Username.getText();
+        String passwordTxt = String.valueOf(password.getPassword());
         
-        if(ingresar.isRight() == false)
-        {
-            JOptionPane.showMessageDialog(null, "error al iniciar");
-        }
+        if (Username.getText().isEmpty() || String.valueOf(password.getPassword()).isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Por favor, ingrese el nombre de usuario y la contraseña.", "Campos vacíos", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+        
+        boolean isValido = consultaSql.validarSql(usernameTxt, passwordTxt);
+        if (isValido) {
+        JOptionPane.showMessageDialog(null, "Credenciales correctas");
+        
+    } else {
+        JOptionPane.showMessageDialog(null,"Credenciales incorrectas");
+    }
+        
+                
+        
+        
        
         
         

@@ -8,13 +8,9 @@ import javax.swing.JOptionPane;
  */
 public class datosUsuarios {
     
-    private boolean Right;
     private Conexion conexionBD;
     private Connection conexion;
 
-    public boolean isRight() {
-        return Right;
-    }
     
     public datosUsuarios() {
         conexionBD = Conexion.getInstancia();
@@ -27,18 +23,17 @@ public class datosUsuarios {
     }
 
     // Para el registro de usuario
-    public boolean insertarUsuario(String componente) {
+    public boolean insertarUsuario(String username, String email, String password) {
         String sqlInsert = "INSERT INTO user (username, email, password) VALUES (?, ?, ?)";
          
            try {
             PreparedStatement stmtUsuario = conexion.prepareStatement(sqlInsert, PreparedStatement.RETURN_GENERATED_KEYS);
             
-            stmtUsuario.setString(1, componente);
-            stmtUsuario.setString(2, componente);
-            stmtUsuario.setString(3, componente);
+            stmtUsuario.setString(1, username);
+            stmtUsuario.setString(2, email);
+            stmtUsuario.setString(3, password);
             stmtUsuario.executeUpdate();
             
-            Right = true;
             
 
          
@@ -49,27 +44,32 @@ public class datosUsuarios {
              
          
     }
-           return Right = false;
+           return false;
     }
-        public boolean validarSql (String componente){
-         String sqlConsulta = " SELECT username, password FROM user WHERE username LIKE ? AND password = ? ";
+        public boolean validarSql (String username, String password){
+         String sqlConsulta = " SELECT * FROM user WHERE username = ? AND password = ? ";
          
             try 
             {
-                PreparedStatement readTextField = conexion.prepareStatement(sqlConsulta, PreparedStatement.RETURN_GENERATED_KEYS);
-                readTextField.setString(1, componente);
-                readTextField.setString(2, componente);
-                readTextField.executeQuery();
-                Right = true; // retorna verdadero si se logro completar los datos
+                PreparedStatement readTextField = conexion.prepareStatement(sqlConsulta);
+                readTextField.setString(1, username);
+                readTextField.setString(2, password);
+                
+            try (ResultSet rs = readTextField.executeQuery()) {
+              
+                return rs.next();
+            }   
+            
                 
             } 
             catch (SQLException ex) 
             {
                  JOptionPane.showMessageDialog(null, ex);
             }
-            return Right = false;
+            return false;
              
          }
+        
          
     }
 

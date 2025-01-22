@@ -330,21 +330,30 @@ public class CrearCuenta extends javax.swing.JFrame {
         IniciarSesion btnNuevoInicio = new IniciarSesion();
         btnNuevoInicio.setVisible(true);
         super.dispose();
-        
     }//GEN-LAST:event_btnContinueActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-   datosUsuarios insertUser = new datosUsuarios();
-   insertUser.insertarUsuario(username.getText());
-   insertUser.insertarUsuario(email.getText());
-   insertUser.insertarUsuario(String.valueOf(password.getPassword()));
-   
-   if(insertUser.isRight() == false)
-   {
-       JOptionPane.showMessageDialog(null, "Hubo un error al registrarse.");
-   }
-    
+        // TODO add your handling code here:
+        datosUsuarios registrar = new datosUsuarios();
+        String usernameTF = username.getText();
+        String emailTF = email.getText();
+        String passwordTF = String.valueOf(password.getPassword());
+        System.out.println(usernameTF);
+        System.out.println(emailTF);
+        System.out.println(passwordTF);
+        
+        
 
+       
+        
+        
+        
+        
+     
+      
+        
+       
+        
     }//GEN-LAST:event_btnRegistrarActionPerformed
     
     /**
