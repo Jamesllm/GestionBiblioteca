@@ -338,21 +338,13 @@ public class CrearCuenta extends javax.swing.JFrame {
         String usernameTF = username.getText();
         String emailTF = email.getText();
         String passwordTF = String.valueOf(password.getPassword());
-        System.out.println(usernameTF);
-        System.out.println(emailTF);
-        System.out.println(passwordTF);
-        
-        
-
-       
-        
-        
-        
-        
-     
-      
-        
-       
+         // Validación de campos
+         personalizado.validarCampos(usernameTF, emailTF, passwordTF);
+         if(personalizado.isFuncional())
+         {
+             registrar.insertarUsuario(usernameTF, emailTF, passwordTF);
+             JOptionPane.showMessageDialog(null, "Datos registrados correctamente.");
+         }
         
     }//GEN-LAST:event_btnRegistrarActionPerformed
     

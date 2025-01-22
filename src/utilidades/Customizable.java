@@ -14,6 +14,34 @@ import javax.swing.text.JTextComponent;
  * @author Alex
  */
 public class Customizable {
+    private boolean funcional;
+
+    public boolean isFuncional() {
+        return funcional;
+    }
+    
+    
+    
+    
+    public void validarCampos(String nombre, String email, String password) {
+    if (nombre == null || nombre.isEmpty() || nombre.equals("Ingrese su usuario")) {
+        throw new IllegalArgumentException("El nombre es obligatorio.");
+    }
+
+    if (email == null || email.trim().isEmpty() || email.equals("example@gmail.com")) {
+        throw new IllegalArgumentException("El email");
+    }
+
+    if (password == null || password.trim().isEmpty() || password.equals("********")) {
+        throw new IllegalArgumentException("La contraseña");
+    }
+
+    // Si todas las condiciones se cumplen
+    funcional = true;
+}
+
+    
+    
     
     // metodo para la mejora del "TextCursor"
      public void cambiarColorCursorText(JTextComponent name) {
@@ -29,6 +57,17 @@ public class Customizable {
      {
          UIManager.put( "Component.focusWidth", 0);
      }
+     
+      public void validarCampos(String nombre, String password) {
+    if (nombre == null || nombre.isEmpty() || nombre.equals("Ingrese su usuario")) {
+        throw new IllegalArgumentException("El nombre es obligatorio.");
+    }
+    if (password == null || password.trim().isEmpty() || password.equals("********")) {
+        throw new IllegalArgumentException("La contraseña");
+    }
+    // Si todas las condiciones se cumplen
+    funcional = true;
+}
      
     
     

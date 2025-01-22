@@ -274,7 +274,6 @@ public class IniciarSesion extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Por favor, ingrese el nombre de usuario y la contraseña.", "Campos vacíos", JOptionPane.WARNING_MESSAGE);
         return;
     }
-        
         boolean isValido = consultaSql.validarSql(usernameTxt, passwordTxt);
         if (isValido) {
         JOptionPane.showMessageDialog(null, "Credenciales correctas");
