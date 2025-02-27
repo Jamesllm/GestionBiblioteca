@@ -58,16 +58,7 @@ public class Customizable {
          UIManager.put( "Component.focusWidth", 0);
      }
      
-      public void validarCampos(String nombre, String password) {
-    if (nombre == null || nombre.isEmpty() || nombre.equals("Ingrese su usuario")) {
-        throw new IllegalArgumentException("El nombre es obligatorio.");
-    }
-    if (password == null || password.trim().isEmpty() || password.equals("********")) {
-        throw new IllegalArgumentException("La contraseña");
-    }
-    // Si todas las condiciones se cumplen
-    funcional = true;
-}
+     
      
     
     

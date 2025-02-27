@@ -46,7 +46,7 @@ public class datosUsuarios {
     }
            return false;
     }
-        public boolean validarSql (String username, String password){
+        public boolean ingresar (String username, String password){
          String sqlConsulta = " SELECT * FROM user WHERE username = ? AND password = ? ";
          
             try 

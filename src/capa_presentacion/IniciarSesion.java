@@ -5,6 +5,7 @@
 package capa_presentacion;
 
 import capa_datos.datosUsuarios;
+import capa_presentacion.admin.Index;
 import utilidades.Customizable;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -15,7 +16,7 @@ import utilidades.ImagenController;
  * @author Alex
  */
 public class IniciarSesion extends javax.swing.JFrame {
-    
+    Index panelAdmin = new Index();
     Customizable personalizado = new Customizable();
 
 
@@ -274,13 +275,27 @@ public class IniciarSesion extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Por favor, ingrese el nombre de usuario y la contraseña.", "Campos vacíos", JOptionPane.WARNING_MESSAGE);
         return;
     }
-        boolean isValido = consultaSql.validarSql(usernameTxt, passwordTxt);
-        if (isValido) {
-        JOptionPane.showMessageDialog(null, "Credenciales correctas");
-        
-    } else {
-        JOptionPane.showMessageDialog(null,"Credenciales incorrectas");
+        boolean isValido = consultaSql.ingresar(usernameTxt, passwordTxt);
+        if (isValido == true) {
+            String nameTextField = "admin";
+            String passwordTextField = "admin";
+            if(nameTextField.equals(usernameTxt) && passwordTextField.equals(passwordTxt))
+            {
+                // interfaz de administrador
+                panelAdmin.setVisible(true);
+                super.dispose();
+            }
+            else{
+                // interfaz de usuario
+            }
     }
+        else if(isValido == false)
+        {
+            JOptionPane.showMessageDialog(null, "Credenciales incorrectas");
+        }
+        
+       
+   
         
                 
         
