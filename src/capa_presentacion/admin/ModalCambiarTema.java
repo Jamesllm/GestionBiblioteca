@@ -1,9 +1,9 @@
 package capa_presentacion.admin;
 
+
 import java.awt.Color;
-import java.awt.event.ActionEvent;
 import javax.swing.SwingUtilities;
-import utilidades.ColorsApp;
+import utilidades.Customizable;
 
 /**
  *
@@ -13,6 +13,8 @@ public class ModalCambiarTema extends javax.swing.JDialog {
 
     /**
      * Creates new form ModalCambiarTema
+     * @param parent
+     * @param modal
      */
     public ModalCambiarTema(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -26,30 +28,30 @@ public class ModalCambiarTema extends javax.swing.JDialog {
     // Método para cambiar al tema oscuro
     public void cambiarTemaOscuro() {
         // Cambia el tema globalmente
-        Index.isDarkTheme = true;  // Establecer el estado del tema a oscuro
+        PanelAdmin.isDarkTheme = true;  // Establecer el estado del tema a oscuro
         // Obtener la instancia de Index y cambiar el tema
-        Index index = (Index) SwingUtilities.getWindowAncestor(this);
-        Index.cambiarTema(true, index);
+        PanelAdmin index = (PanelAdmin) SwingUtilities.getWindowAncestor(this);
+        Customizable.cambiarTema(true, index);
         actualizarBotonActivo();
     }
 
     // Método para cambiar al tema claro
     public void cambiarTemaClaro() {
         // Cambia el tema globalmente
-        Index.isDarkTheme = false;  // Establecer el estado del tema a claro
+        PanelAdmin.isDarkTheme = false;  // Establecer el estado del tema a claro
         // Obtener la instancia de Index y cambiar el tema
-        Index index = (Index) SwingUtilities.getWindowAncestor(this);
-        Index.cambiarTema(false, index);
+        PanelAdmin index = (PanelAdmin) SwingUtilities.getWindowAncestor(this);
+        Customizable.cambiarTema(false, index);
         actualizarBotonActivo();
     }
 
     // Método para actualizar el estado de los botones (poner en verde el botón activo)
     private void actualizarBotonActivo() {
-        if (Index.isDarkTheme) {
-            btnDarkTheme.setBackground(ColorsApp.getCOLOR_PRIMARY());
+        if (PanelAdmin.isDarkTheme) {
+            btnDarkTheme.setBackground(new Color(68,196,181));
             btnLigthTheme.setBackground(null);
         } else {
-            btnLigthTheme.setBackground(ColorsApp.getCOLOR_PRIMARY());
+            btnLigthTheme.setBackground(new Color(68,196,181));
             btnDarkTheme.setBackground(null);
         }
     }

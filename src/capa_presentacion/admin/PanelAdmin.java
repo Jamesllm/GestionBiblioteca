@@ -1,24 +1,20 @@
 package capa_presentacion.admin;
 
 import utilidades.ButtonChangeColor;
-
-import com.formdev.flatlaf.FlatLightLaf;
-import com.formdev.flatlaf.intellijthemes.FlatMaterialDesignDarkIJTheme;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.SwingUtilities;
+import utilidades.Customizable;
 
 /**
  *
  * @author Llapapasca Montes
  */
-public class Index extends javax.swing.JFrame {
-
+public final class PanelAdmin extends javax.swing.JFrame {
+    Customizable personalizado = new Customizable();
     public static boolean isDarkTheme = true;
     // colorPrimary : #44c4b5
 
-    public Index() {
+    public PanelAdmin() {
         initComponents();
+        aplicarStyle();
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setTitle("Panel Administrativo - Biblioteca");
         txtBienvenida.setText("Bienvenido .... 👋");
@@ -28,6 +24,15 @@ public class Index extends javax.swing.JFrame {
                 btnInicio,
                 btnInicio, btnUsuarios, btnLibros, btnPrestamos, btnDevoluciones
         );
+    }
+    public void aplicarStyle()
+    {
+        personalizado.StyleButton(btnInicio);
+        personalizado.StyleButton(btnUsuarios);
+        personalizado.StyleButton(btnLibros);
+        personalizado.StyleButton(btnPrestamos);
+        personalizado.StyleButton(btnDevoluciones);
+        
     }
 
     /**
@@ -482,36 +487,20 @@ public class Index extends javax.swing.JFrame {
         modalTema.setLocationRelativeTo(this);
         modalTema.setVisible(true);
     }//GEN-LAST:event_jMICambiarTemaActionPerformed
-
     public static void main(String args[]) {
         // Crear y mostrar la aplicación
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Index index = new Index();
+                PanelAdmin index = new PanelAdmin();
                 index.setVisible(true);
                 // Llamar a cambiarTema pasando la instancia 'index'
-                cambiarTema(true, index); // Usamos el valor por defecto (tema oscuro)
+                Customizable.cambiarTema(true, index); // Usamos el valor por defecto (tema oscuro)
             }
         });
     }
 
     // Método para cambiar el tema global
-    public static void cambiarTema(boolean temaOscuro, Index index) {
-        try {
-            if (temaOscuro) {
-                // Configura el tema oscuro
-                FlatMaterialDesignDarkIJTheme.setup();
-            } else {
-                // Configura el tema claro
-                UIManager.setLookAndFeel(new FlatLightLaf());
-            }
-
-            // Aplicar el cambio de tema globalmente a todos los componentes
-            SwingUtilities.updateComponentTreeUI(index); // Actualiza todos los componentes de la instancia 'index'
-        } catch (UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
-        }
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane JTabAdmin;

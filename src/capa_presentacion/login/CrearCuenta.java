@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package capa_presentacion;
+package capa_presentacion.login;
 
-import capa_datos.Conexion;
 import capa_datos.datosUsuarios;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -38,10 +37,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         personalizado.StyleButton(btnContinue);
         personalizado.StyleButton(btnRegistrar);
     }
-    private static void limpiarTextField (JTextField textField)
-    {
-        textField.setText("");
-    }
+   
     
 
     /**

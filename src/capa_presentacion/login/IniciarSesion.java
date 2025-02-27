@@ -2,10 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package capa_presentacion;
+package capa_presentacion.login;
 
+import capa_presentacion.login.CrearCuenta;
 import capa_datos.datosUsuarios;
-import capa_presentacion.admin.Index;
+import capa_presentacion.admin.PanelAdmin;
 import utilidades.Customizable;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -16,7 +17,7 @@ import utilidades.ImagenController;
  * @author Alex
  */
 public class IniciarSesion extends javax.swing.JFrame {
-    Index panelAdmin = new Index();
+    PanelAdmin panelAdmin = new PanelAdmin();
     Customizable personalizado = new Customizable();
 
 
