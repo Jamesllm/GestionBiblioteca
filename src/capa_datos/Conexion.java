@@ -34,10 +34,9 @@ public class Conexion {
                 conexion = DriverManager.getConnection(conexionUrl);
                 System.out.println("Conexion a SQLite establecida.");
                 
-            } catch (ClassNotFoundException ce) {
-                ce.printStackTrace();
-            } catch (SQLException sqle) {
-                sqle.printStackTrace();
+            } catch (ClassNotFoundException | SQLException ce) {
+                System.out.println("Error al cerrar la conexión: " + ce.getMessage());
+                
             }
         }
         return conexion;

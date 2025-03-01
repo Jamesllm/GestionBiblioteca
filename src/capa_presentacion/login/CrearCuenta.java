@@ -9,7 +9,6 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import utilidades.Customizable;
 import utilidades.ImagenController;
-import javax.swing.JTextField;
 
 /**
  *
@@ -341,7 +340,6 @@ public class CrearCuenta extends javax.swing.JFrame {
              registrar.insertarUsuario(usernameTF, emailTF, passwordTF);
              JOptionPane.showMessageDialog(null, "Datos registrados correctamente.");
          }
-        
     }//GEN-LAST:event_btnRegistrarActionPerformed
     
     /**

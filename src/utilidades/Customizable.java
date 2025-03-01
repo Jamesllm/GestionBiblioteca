@@ -9,6 +9,7 @@ import com.formdev.flatlaf.intellijthemes.FlatMaterialDesignDarkIJTheme;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -19,7 +20,7 @@ import javax.swing.text.JTextComponent;
  * @author Alex
  */
 public class Customizable {
-    private boolean funcional;
+    private static boolean funcional;
 
     public boolean isFuncional() {
         return funcional;
@@ -30,19 +31,18 @@ public class Customizable {
     
     public void validarCampos(String nombre, String email, String password) {
     if (nombre == null || nombre.isEmpty() || nombre.equals("Ingrese su usuario")) {
-        throw new IllegalArgumentException("El nombre es obligatorio.");
-    }
-
     if (email == null || email.trim().isEmpty() || email.equals("example@gmail.com")) {
-        throw new IllegalArgumentException("El email");
-    }
-
     if (password == null || password.trim().isEmpty() || password.equals("********")) {
-        throw new IllegalArgumentException("La contraseña");
+         JOptionPane.showMessageDialog(null, "No puede dejar un campo vacio");
     }
+        }
+    funcional = false;
+            }   
 
     // Si todas las condiciones se cumplen
+    else{
     funcional = true;
+    }
 }
 
     
@@ -78,7 +78,7 @@ public class Customizable {
             // Aplicar el cambio de tema globalmente a todos los componentes
             SwingUtilities.updateComponentTreeUI(index); // Actualiza todos los componentes de la instancia 'index'
         } catch (UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
     }
      

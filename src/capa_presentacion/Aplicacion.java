@@ -33,6 +33,9 @@ public class Aplicacion {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
+         
+          
+        
         
         
        
@@ -43,6 +46,7 @@ public class Aplicacion {
 
 
     }
+      
 
   
 }

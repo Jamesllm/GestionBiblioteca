@@ -4,12 +4,11 @@
  */
 package capa_presentacion.login;
 
-import capa_presentacion.login.CrearCuenta;
 import capa_datos.datosUsuarios;
+import capa_presentacion.PanelUsuario;
 import capa_presentacion.admin.PanelAdmin;
 import utilidades.Customizable;
 import java.awt.Color;
-import javax.swing.JOptionPane;
 import utilidades.ImagenController;
 
 /**
@@ -18,6 +17,7 @@ import utilidades.ImagenController;
  */
 public class IniciarSesion extends javax.swing.JFrame {
     PanelAdmin panelAdmin = new PanelAdmin();
+    PanelUsuario panelUser = new PanelUsuario();
     Customizable personalizado = new Customizable();
 
 
@@ -268,45 +268,25 @@ public class IniciarSesion extends javax.swing.JFrame {
 
     private void SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignInActionPerformed
         // TODO add your handling code here:
-        datosUsuarios consultaSql = new datosUsuarios();
+       datosUsuarios consultaSql = new datosUsuarios();
         String usernameTxt = Username.getText();
         String passwordTxt = String.valueOf(password.getPassword());
         
-        if (Username.getText().isEmpty() || String.valueOf(password.getPassword()).isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Por favor, ingrese el nombre de usuario y la contraseña.", "Campos vacíos", JOptionPane.WARNING_MESSAGE);
-        return;
-    }
-        boolean isValido = consultaSql.ingresar(usernameTxt, passwordTxt);
-        if (isValido == true) {
-            String nameTextField = "admin";
-            String passwordTextField = "admin";
-            if(nameTextField.equals(usernameTxt) && passwordTextField.equals(passwordTxt))
+        if(!consultaSql.ingresar(usernameTxt, passwordTxt)){
+            if(usernameTxt.equals("admin") || passwordTxt.equals("admin"))
             {
                 // interfaz de administrador
                 panelAdmin.setVisible(true);
                 super.dispose();
             }
-            else{
-                // interfaz de usuario
+           
             }
-    }
-        else if(isValido == false)
-        {
-            JOptionPane.showMessageDialog(null, "Credenciales incorrectas");
+        else{
+            panelUser.setVisible(true);
+            super.dispose();
         }
         
        
-   
-        
-                
-        
-        
-       
-        
-        
-        
-        
-            
     }//GEN-LAST:event_SignInActionPerformed
 
     /**
